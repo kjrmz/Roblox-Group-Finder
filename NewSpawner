@@ -1,0 +1,168 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+
+-- UI Setup
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 350, 0, 300)
+Frame.Position = UDim2.new(0.5, -175, 0.5, -150)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BackgroundTransparency = 0.1
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
+-- Title Bar
+local TitleBar = Instance.new("Frame")
+TitleBar.Size = UDim2.new(1, 0, 0, 30)
+TitleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TitleBar.Parent = Frame
+
+local TitleText = Instance.new("TextLabel")
+TitleText.Text = "OP Pet Spawner by @Ignite Scripts"
+TitleText.Size = UDim2.new(1, 0, 1, 0)
+TitleText.BackgroundTransparency = 1
+TitleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleText.Font = Enum.Font.GothamBold
+TitleText.TextSize = 16
+TitleText.Parent = TitleBar
+
+-- Input Box
+local TextBox = Instance.new("TextBox")
+TextBox.Size = UDim2.new(0.8, 0, 0, 40)
+TextBox.Position = UDim2.new(0.1, 0, 0.2, 0)
+TextBox.PlaceholderText = "Enter Pet Name"
+TextBox.Text = ""
+TextBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Font = Enum.Font.Gotham
+TextBox.TextSize = 14
+TextBox.Parent = Frame
+
+-- Feedback Text
+local Feedback = Instance.new("TextLabel")
+Feedback.Size = UDim2.new(1, 0, 0, 30)
+Feedback.Position = UDim2.new(0, 0, 0.9, 0)
+Feedback.BackgroundTransparency = 1
+Feedback.Text = ""
+Feedback.TextColor3 = Color3.fromRGB(255, 255, 255)
+Feedback.Font = Enum.Font.Gotham
+Feedback.TextSize = 14
+Feedback.Parent = Frame
+
+-- Loading UI
+local LoadingFrame = Instance.new("Frame")
+LoadingFrame.Size = UDim2.new(0, 200, 0, 100)
+LoadingFrame.Position = UDim2.new(0.5, -100, 0.5, -50)
+LoadingFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+LoadingFrame.Visible = false
+LoadingFrame.Parent = ScreenGui
+
+local LoadingText = Instance.new("TextLabel")
+LoadingText.Text = "Spawning Pet..."
+LoadingText.Size = UDim2.new(1, 0, 1, 0)
+LoadingText.BackgroundTransparency = 1
+LoadingText.TextColor3 = Color3.fromRGB(255, 255, 255)
+LoadingText.Font = Enum.Font.GothamBold
+LoadingText.TextSize = 16
+LoadingText.Parent = LoadingFrame
+
+-- Pet Type Selection
+local petType = "FR"
+
+local function createTypeButton(name, position, row, bgColor, textColor)
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0.3, 0, 0, 30)
+    button.Position = UDim2.new(position, 0, row, 0)
+    button.Text = name
+    button.BackgroundColor3 = bgColor
+    button.TextColor3 = textColor
+    button.Font = Enum.Font.GothamBold
+    button.TextSize = 14
+    button.Parent = Frame
+
+    button.MouseButton1Click:Connect(function()
+        petType = name
+        Feedback.Text = "Selected: " .. name
+        Feedback.TextColor3 = Color3.fromRGB(255, 255, 0)
+    end)
+
+    return button
+end
+
+-- Create Buttons for Pet Types
+createTypeButton("MFR", 0.05, 0.35, Color3.fromRGB(255, 100, 100), Color3.fromRGB(255, 255, 255))
+createTypeButton("NFR", 0.37, 0.35, Color3.fromRGB(100, 255, 100), Color3.fromRGB(255, 255, 255))
+createTypeButton("FR", 0.69, 0.35, Color3.fromRGB(100, 100, 255), Color3.fromRGB(255, 255, 255))
+createTypeButton("F", 0.05, 0.5, Color3.fromRGB(255, 165, 0), Color3.fromRGB(255, 255, 255))
+createTypeButton("R", 0.37, 0.5, Color3.fromRGB(0, 255, 255), Color3.fromRGB(255, 255, 255))
+createTypeButton("NO POTION", 0.69, 0.5, Color3.fromRGB(200, 200, 200), Color3.fromRGB(0, 0, 0))
+
+-- Spawn Button
+local Button = Instance.new("TextButton")
+Button.Size = UDim2.new(0.8, 0, 0, 40)
+Button.Position = UDim2.new(0.1, 0, 0.7, 0)
+Button.Text = "Spawn Pet"
+Button.BackgroundColor3 = Color3.fromRGB(60, 120, 200)
+Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+Button.Font = Enum.Font.GothamBold
+Button.TextSize = 14
+Button.Parent = Frame
+
+-- FUNCTION TO SPAWN PET
+local function spawnPet(petName)
+    LoadingFrame.Visible = true
+    task.wait(7) -- Simulating loading time
+
+    local Loads = require(game.ReplicatedStorage.Fsys).load
+    local ClientData = Loads("ClientData")
+    local InventoryDB = Loads("InventoryDB")
+    local Inventory = ClientData.get("inventory")
+
+    local function generate_prop()
+        return {
+            flyable = petType == "F" or petType == "FR" or petType == "NFR" or petType == "MFR",
+            rideable = petType == "R" or petType == "FR" or petType == "NFR" or petType == "MFR",
+            neon = petType == "NFR" or petType == "MFR",
+            mega_neon = petType == "MFR",
+            age = 1
+        }
+    end
+
+    for _, pets in pairs(InventoryDB.pets or {}) do
+        if pets.name == petName then
+            local fake_uuid = game.HttpService:GenerateGUID()
+            local new_pet = table.clone(pets)
+            new_pet["unique"] = fake_uuid
+            new_pet["category"] = "pets"
+            new_pet["properties"] = generate_prop()
+            new_pet["newness_order"] = math.random(1, 900000)
+
+            Inventory.pets[fake_uuid] = new_pet
+
+            Feedback.Text = "✅ Pet Spawned: " .. petName .. " (" .. petType .. ")"
+            Feedback.TextColor3 = Color3.fromRGB(0, 255, 0)
+            LoadingFrame.Visible = false
+            return
+        end
+    end
+
+    Feedback.Text = "❌ Pet Not Found: " .. petName
+    Feedback.TextColor3 = Color3.fromRGB(255, 0, 0)
+    LoadingFrame.Visible = false
+end
+
+-- BUTTON CLICK EVENT
+Button.MouseButton1Click:Connect(function()
+    local petName = TextBox.Text
+    if petName and petName ~= "" then
+        spawnPet(petName)
+    else
+        Feedback.Text = "❌ Please enter a pet name."
+        Feedback.TextColor3 = Color3.fromRGB(255, 0, 0)
+    end
+end)
