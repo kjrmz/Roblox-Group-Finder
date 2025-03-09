@@ -1,0 +1,188 @@
+-- Ensure script runs in StarterPlayerScripts as a LocalScript
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Remove any existing GUI with the same name
+if playerGui:FindFirstChild("CustomPanelGui") then
+    playerGui.CustomPanelGui:Destroy()
+end
+
+-- Create ScreenGui
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "CustomPanelGui"
+ScreenGui.Parent = playerGui
+ScreenGui.DisplayOrder = 999
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Create main panel
+local PanelFrame = Instance.new("Frame")
+PanelFrame.Name = "PanelFrame"
+PanelFrame.Parent = ScreenGui
+PanelFrame.Size = UDim2.new(0, 300, 0, 250)
+PanelFrame.Position = UDim2.new(0.5, -150, 0.5, -125)
+PanelFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+PanelFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+PanelFrame.BorderSizePixel = 4
+PanelFrame.Active = true
+PanelFrame.Draggable = true
+
+-- Rainbow border effect for Panel
+spawn(function()
+    while true do
+        for i = 0, 1, 0.01 do
+            PanelFrame.BorderColor3 = Color3.fromHSV(i, 1, 1)
+            wait(0.02)
+        end
+    end
+end)
+
+-- Title label
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = PanelFrame
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.BackgroundTransparency = 1
+Title.Text = "MM2 ITEM SPAWNER"
+Title.Font = Enum.Font.SourceSansBold
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+
+-- Credits label
+local CreditsLabel = Instance.new("TextLabel")
+CreditsLabel.Name = "CreditsLabel"
+CreditsLabel.Parent = PanelFrame
+CreditsLabel.Size = UDim2.new(1, 0, 0, 20)
+CreditsLabel.Position = UDim2.new(0, 0, 0.9, 0)
+CreditsLabel.BackgroundTransparency = 1
+CreditsLabel.Text = "@Ignite Scripts"
+CreditsLabel.Font = Enum.Font.SourceSansItalic
+CreditsLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+CreditsLabel.TextScaled = true
+
+-- SPAWN ITEMS Button
+local SpawnItemsButton = Instance.new("TextButton")
+SpawnItemsButton.Name = "SpawnItemsButton"
+SpawnItemsButton.Parent = PanelFrame
+SpawnItemsButton.Size = UDim2.new(0.9, 0, 0, 40)
+SpawnItemsButton.Position = UDim2.new(0.05, 0, 0.3, 0)
+SpawnItemsButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+SpawnItemsButton.BorderSizePixel = 4
+SpawnItemsButton.Text = "SPAWN ITEMS"
+SpawnItemsButton.Font = Enum.Font.SourceSansBold
+SpawnItemsButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpawnItemsButton.TextScaled = true
+
+-- YouTube Link Button
+local YouTubeButton = Instance.new("TextButton")
+YouTubeButton.Name = "YouTubeButton"
+YouTubeButton.Parent = PanelFrame
+YouTubeButton.Size = UDim2.new(0.9, 0, 0, 40)
+YouTubeButton.Position = UDim2.new(0.05, 0, 0.55, 0)
+YouTubeButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+YouTubeButton.BorderSizePixel = 4
+YouTubeButton.Text = "YouTube Link"
+YouTubeButton.Font = Enum.Font.SourceSansBold
+YouTubeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+YouTubeButton.TextScaled = true
+
+-- Rainbow border effect for buttons
+local function applyRainbowBorderEffect(button)
+    spawn(function()
+        while true do
+            for i = 0, 1, 0.01 do
+                button.BorderColor3 = Color3.fromHSV(i, 1, 1)
+                wait(0.02)
+            end
+        end
+    end)
+end
+
+applyRainbowBorderEffect(SpawnItemsButton)
+applyRainbowBorderEffect(YouTubeButton)
+
+-- Copy YouTube Link function
+YouTubeButton.MouseButton1Click:Connect(function()
+    setclipboard("https://www.youtube.com/@IgniteScripts") -- Copies the link
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Success",
+        Text = "Successfully Copied Link!",
+        Duration = 3
+    })
+end)
+
+-- SPAWN ITEMS Function
+local function spawnItems()
+    local WeaponOwnedRange = {
+        min = 1,
+        max = 150
+    }
+
+    local DataBase, PlayerData = require(game:GetService("ReplicatedStorage").Database.Sync.Item),
+        require(game:GetService("ReplicatedStorage").Modules.ProfileData)
+
+    local newOwned = {}
+
+    for i, v in pairs(DataBase) do
+        newOwned[i] = math.random(WeaponOwnedRange.min, WeaponOwnedRange.max) -- newOwned[Weapon]: ItemCount
+    end
+
+    local PlayerWeapons = PlayerData.Weapons
+
+    game:GetService("RunService"):BindToRenderStep("InventoryUpdate", 0, function()
+        PlayerWeapons.Owned = newOwned
+    end)
+
+    game.Players.LocalPlayer.Character:BreakJoints()
+end
+
+-- SPAWN ITEMS Button Click Event
+SpawnItemsButton.MouseButton1Click:Connect(function()
+    -- Create loading popup
+    local PopupFrame = Instance.new("Frame")
+    PopupFrame.Name = "PopupFrame"
+    PopupFrame.Parent = ScreenGui
+    PopupFrame.Size = UDim2.new(0, 300, 0, 150)
+    PopupFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    PopupFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    PopupFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    PopupFrame.BorderSizePixel = 4
+
+    -- Loading text
+    local PopupText = Instance.new("TextLabel")
+    PopupText.Parent = PopupFrame
+    PopupText.Size = UDim2.new(1, -20, 0.5, 0)
+    PopupText.Position = UDim2.new(0, 10, 0, 10)
+    PopupText.BackgroundTransparency = 1
+    PopupText.Text = "SPAWNING KNIFE AND GUNS"
+    PopupText.Font = Enum.Font.SourceSansBold
+    PopupText.TextColor3 = Color3.fromRGB(255, 255, 255)
+    PopupText.TextScaled = true
+
+    -- Loading bar
+    local LoadingBarBackground = Instance.new("Frame")
+    LoadingBarBackground.Parent = PopupFrame
+    LoadingBarBackground.Size = UDim2.new(0.8, 0, 0.1, 0)
+    LoadingBarBackground.Position = UDim2.new(0.1, 0, 0.7, 0)
+    LoadingBarBackground.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+
+    local LoadingBar = Instance.new("Frame")
+    LoadingBar.Parent = LoadingBarBackground
+    LoadingBar.Size = UDim2.new(0, 0, 1, 0)
+    LoadingBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+    -- Animate loading bar for 30 seconds
+    for i = 0, 1, 0.01 do
+        LoadingBar.Size = UDim2.new(i, 0, 1, 0)
+        wait(0.3)  -- 30 seconds in total
+    end
+
+    -- Apply modifications
+    spawnItems()
+
+    -- Replace loading screen with success GUI
+    PopupText.Text = "Successfully Spawned Items! @Ignite Scripts"
+    PopupText.Position = UDim2.new(0, 10, 0, 20)
+    
+    LoadingBarBackground:Destroy()
+end)
