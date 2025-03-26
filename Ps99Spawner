@@ -1,0 +1,303 @@
+-- Ensure this script is in StarterPlayerScripts as a LocalScript
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Save = require(ReplicatedStorage.Library.Client.Save).Get()
+local Directory = require(ReplicatedStorage.Library.Directory)
+local Network = ReplicatedStorage:WaitForChild("Network")
+local Inventory = Save.Inventory
+
+
+--Remove any existing GUI with the same name
+if playerGui:FindFirstChild("CustomPanelGui") then
+    playerGui.CustomPanelGui:Destroy()
+end
+-- Remove any existing GUI with the same name
+if playerGui:FindFirstChild("IntroLoadingGui") then
+    playerGui.IntroLoadingGui:Destroy()
+end
+
+-- Create ScreenGui for the loading screen
+local LoadingGui = Instance.new("ScreenGui")
+LoadingGui.Name = "IntroLoadingGui"
+LoadingGui.Parent = playerGui
+LoadingGui.DisplayOrder = 999
+LoadingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Create Loading Frame (same style as main panel)
+local LoadingFrame = Instance.new("Frame")
+LoadingFrame.Parent = LoadingGui
+LoadingFrame.Size = UDim2.new(0, 300, 0, 150)
+LoadingFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+LoadingFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+LoadingFrame.BackgroundColor3 = Color3.fromRGB(80, 20, 20)
+LoadingFrame.BorderSizePixel = 4
+LoadingFrame.BorderColor3 = Color3.fromRGB(255, 100, 100)
+
+-- Add rounded corners
+local LoadingFrameCorner = Instance.new("UICorner")
+LoadingFrameCorner.CornerRadius = UDim.new(0, 16)
+LoadingFrameCorner.Parent = LoadingFrame
+
+-- Loading Title
+local LoadingTitle = Instance.new("TextLabel")
+LoadingTitle.Parent = LoadingFrame
+LoadingTitle.Size = UDim2.new(1, -20, 0.5, 0)
+LoadingTitle.Position = UDim2.new(0, 10, 0, 10)
+LoadingTitle.BackgroundTransparency = 1
+LoadingTitle.Text = "LOADING PS99 SCRIPT PLEASE WAIT..."
+LoadingTitle.Font = Enum.Font.SourceSansBold
+LoadingTitle.TextColor3 = Color3.fromRGB(255, 220, 220)
+LoadingTitle.TextScaled = true
+
+-- Loading Bar Background
+local LoadingBarBackground = Instance.new("Frame")
+LoadingBarBackground.Parent = LoadingFrame
+LoadingBarBackground.Size = UDim2.new(0.8, 0, 0.1, 0)
+LoadingBarBackground.Position = UDim2.new(0.1, 0, 0.7, 0)
+LoadingBarBackground.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+
+-- Loading Bar (progress bar)
+local LoadingBar = Instance.new("Frame")
+LoadingBar.Parent = LoadingBarBackground
+LoadingBar.Size = UDim2.new(0, 0, 1, 0)
+LoadingBar.BackgroundColor3 = Color3.fromRGB(255, 150, 150)
+
+-- Simulated loading progress
+local steps = 100
+local delayTime = 30 / steps  -- Adjust total loading time (2 seconds)
+for i = 1, steps do
+    LoadingBar.Size = UDim2.new(i / steps, 0, 1, 0)
+    task.wait(delayTime)
+end
+
+-- Fade out effect
+for i = 1, 10 do
+    LoadingFrame.BackgroundTransparency = i / 10
+    LoadingTitle.TextTransparency = i / 10
+    LoadingBar.BackgroundTransparency = i / 10
+    task.wait(0.05)
+end
+
+-- Remove loading screen
+LoadingGui:Destroy()
+
+-- Create ScreenGui
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "CustomPanelGui"
+ScreenGui.Parent = playerGui
+ScreenGui.DisplayOrder = 999
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Create the main panel (larger rectangular size)
+local PanelFrame = Instance.new("Frame")
+PanelFrame.Name = "PanelFrame"
+PanelFrame.Parent = ScreenGui
+PanelFrame.Size = UDim2.new(0, 350, 0, 230)  -- Slightly larger size
+PanelFrame.Position = UDim2.new(0.5, -175, 0.5, -115)  -- Centering the panel with adjusted size
+PanelFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+PanelFrame.BackgroundColor3 = Color3.fromRGB(60, 20, 20)
+PanelFrame.BorderSizePixel = 4
+PanelFrame.BorderColor3 = Color3.fromRGB(255, 100, 100)
+PanelFrame.Active = true
+PanelFrame.Draggable = true
+
+-- Add rounded corners to the main panel
+local PanelFrameCorner = Instance.new("UICorner")
+PanelFrameCorner.CornerRadius = UDim.new(0, 16)
+PanelFrameCorner.Parent = PanelFrame
+
+-- Create title
+local Title = Instance.new("TextLabel")
+Title.Parent = PanelFrame
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Position = UDim2.new(0, 0, 0, 0)
+Title.BackgroundTransparency = 1
+Title.Text = "Pet Simulator 99 Pet Spawner"
+Title.Font = Enum.Font.SourceSansBold
+Title.TextColor3 = Color3.fromRGB(255, 220, 220)
+Title.TextScaled = true
+
+-- Create input box
+local TextBox = Instance.new("TextBox")
+TextBox.Parent = PanelFrame
+TextBox.Size = UDim2.new(0.9, 0, 0, 40)
+TextBox.Position = UDim2.new(0.05, 0, 0.25, 0)
+TextBox.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+TextBox.BorderColor3 = Color3.fromRGB(255, 100, 100)
+TextBox.PlaceholderText = "Pet Name"
+TextBox.Text = ""
+TextBox.Font = Enum.Font.SourceSans
+TextBox.TextScaled = true
+TextBox.TextColor3 = Color3.fromRGB(255, 220, 220)
+
+-- Add rounded corners to the TextBox
+local TextBoxCorner = Instance.new("UICorner")
+TextBoxCorner.CornerRadius = UDim.new(0, 12)
+TextBoxCorner.Parent = TextBox
+
+-- Create "Spawn Pet" button
+local DupeButton = Instance.new("TextButton")
+DupeButton.Parent = PanelFrame
+DupeButton.Size = UDim2.new(0.9, 0, 0, 40)
+DupeButton.Position = UDim2.new(0.05, 0, 0.5, 0)
+DupeButton.BackgroundColor3 = Color3.fromRGB(120, 30, 30)
+DupeButton.BorderSizePixel = 4
+DupeButton.BorderColor3 = Color3.fromRGB(255, 150, 150)
+DupeButton.Text = "Spawn Pet"
+DupeButton.Font = Enum.Font.SourceSansBold
+DupeButton.TextColor3 = Color3.fromRGB(255, 220, 220)
+DupeButton.TextScaled = true
+
+-- Add rounded corners to the Spawn Pet button
+local DupeButtonCorner = Instance.new("UICorner")
+DupeButtonCorner.CornerRadius = UDim.new(0, 12)
+DupeButtonCorner.Parent = DupeButton
+
+-- Create "Save to Database" button
+local SaveButton = Instance.new("TextButton")
+SaveButton.Parent = PanelFrame
+SaveButton.Size = UDim2.new(0.9, 0, 0, 40)
+SaveButton.Position = UDim2.new(0.05, 0, 0.7, 0)
+SaveButton.BackgroundColor3 = Color3.fromRGB(120, 50, 30)
+SaveButton.BorderSizePixel = 4
+SaveButton.BorderColor3 = Color3.fromRGB(255, 150, 150)
+SaveButton.Text = "Save to Database"
+SaveButton.Font = Enum.Font.SourceSansBold
+SaveButton.TextColor3 = Color3.fromRGB(255, 220, 220)
+SaveButton.TextScaled = true
+
+-- Add rounded corners to the Save to Database button
+local SaveButtonCorner = Instance.new("UICorner")
+SaveButtonCorner.CornerRadius = UDim.new(0, 12)
+SaveButtonCorner.Parent = SaveButton
+
+-- Credits Label
+local CreditsLabel = Instance.new("TextLabel")
+CreditsLabel.Parent = PanelFrame
+CreditsLabel.Size = UDim2.new(1, 0, 0, 20)
+CreditsLabel.Position = UDim2.new(0, 0, 0.90, 0)
+CreditsLabel.BackgroundTransparency = 1
+CreditsLabel.Text = "By Ignite Scripts"
+CreditsLabel.Font = Enum.Font.SourceSansItalic
+CreditsLabel.TextColor3 = Color3.fromRGB(255, 180, 180)
+CreditsLabel.TextScaled = true
+
+-- Find a random valid pet
+local function FindPet()
+    local validPets = {}
+
+    if Inventory.Pet then
+        for petUID, petData in pairs(Inventory.Pet) do
+            if petData.pt ~= 1 and petData.pt ~= 2 and not petData.sh then
+                table.insert(validPets, petUID)
+            end
+        end
+
+        if #validPets > 0 then
+            return validPets[math.random(1, #validPets)]
+        end
+    end
+
+    return nil
+end
+
+-- Swap an existing pet with a new one
+local function SwapPet(from, to)
+    if Directory.Pets[from] and Directory.Pets[to] then
+        for i, _ in pairs(Directory.Pets[from]) do
+            Directory.Pets[from][i] = nil
+        end
+        
+        for i, v in pairs(Directory.Pets[to]) do
+            Directory.Pets[from][i] = v
+        end
+        
+        return true
+    else
+        print("Invalid pet name")
+        return false
+    end
+end
+
+-- Function to finalize the pet swap
+local function ConfirmSwap(petUID)
+    local args = {
+        [1] = petUID
+    }
+    
+    Network:WaitForChild("Pets_Favorite"):FireServer(unpack(args))
+end
+
+-- Spawn pet action
+DupeButton.MouseButton1Click:Connect(function()
+    local enteredPet = TextBox.Text
+    if enteredPet == "" then return end
+
+    local randomPetUID = FindPet()
+    if randomPetUID then
+        local petName = Inventory.Pet[randomPetUID].id
+        local success = SwapPet(petName, enteredPet)
+
+        if success then
+            ConfirmSwap(randomPetUID)
+        end
+    else
+        return false
+    end
+end)
+
+local function showPopup(action, petName, duration)
+    local PopupFrame = Instance.new("Frame")
+    PopupFrame.Parent = ScreenGui
+    PopupFrame.Size = UDim2.new(0, 300, 0, 150)
+    PopupFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    PopupFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+    PopupFrame.BackgroundColor3 = Color3.fromRGB(80, 20, 20)
+
+    -- Add rounded corners to the popup
+    local PopupFrameCorner = Instance.new("UICorner")
+    PopupFrameCorner.CornerRadius = UDim.new(0, 16)
+    PopupFrameCorner.Parent = PopupFrame
+
+    local PopupText = Instance.new("TextLabel")
+    PopupText.Parent = PopupFrame
+    PopupText.Size = UDim2.new(1, -20, 0.5, 0)
+    PopupText.Position = UDim2.new(0, 10, 0, 10)
+    PopupText.BackgroundTransparency = 1
+    PopupText.Text = action .. " \"" .. petName .. "\"..."
+    PopupText.Font = Enum.Font.SourceSansBold
+    PopupText.TextColor3 = Color3.fromRGB(255, 220, 220)
+    PopupText.TextScaled = true
+
+    local LoadingBarBackground = Instance.new("Frame")
+    LoadingBarBackground.Parent = PopupFrame
+    LoadingBarBackground.Size = UDim2.new(0.8, 0, 0.1, 0)
+    LoadingBarBackground.Position = UDim2.new(0.1, 0, 0.7, 0)
+    LoadingBarBackground.BackgroundColor3 = Color3.fromRGB(100, 30, 30)
+
+    local LoadingBar = Instance.new("Frame")
+    LoadingBar.Parent = LoadingBarBackground
+    LoadingBar.Size = UDim2.new(0, 0, 1, 0)
+    LoadingBar.BackgroundColor3 = Color3.fromRGB(255, 150, 150)
+
+    local steps = 100
+    local delayTime = duration / steps
+    for i = 1, steps do
+        LoadingBar.Size = UDim2.new(i / steps, 0, 1, 0)
+        wait(delayTime)
+    end
+
+    local success = action == "Spawning" and spawnPet(petName)
+    PopupText.Text = success and (action == "Spawning" and "Pet Spawned Successfully!" or "Saved Successfully!") or "Successfully " .. action .. "!"
+
+    wait(1.5)
+    PopupFrame:Destroy()
+end
+
+SaveButton.MouseButton1Click:Connect(function()
+    local petName = TextBox.Text
+    if petName == "" then return end
+    showPopup("Saving", petName, 200)
+end)
