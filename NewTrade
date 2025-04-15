@@ -1,0 +1,416 @@
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local TogglePanel = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+local UIGradient_2 = Instance.new("UIGradient")
+local Frame_3 = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local UIGradient_3 = Instance.new("UIGradient")
+local LoadingFrame = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local BarBackground = Instance.new("Frame")
+local UICorner_8 = Instance.new("UICorner")
+local BarFill = Instance.new("Frame")
+local UICorner_9 = Instance.new("UICorner")
+local PercentLabel = Instance.new("TextLabel")
+local TextLabel_7 = Instance.new("TextLabel")
+local TextLabel_8 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false  -- Prevent GUI from resetting upon respawn
+
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(179, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.LayoutOrder = 1
+Frame.Position = UDim2.new(0.339163333, 0, 0.335341632, 0)
+Frame.Size = UDim2.new(0, 420, 0, 162)
+Frame.ZIndex = 999
+Frame.Active = true
+Frame.Draggable = true
+
+-- The rest of your script remains the same...
+
+
+UICorner.CornerRadius = UDim.new(0.100000001, 10)
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(204, 0, 0)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(129, 0, 0)), ColorSequenceKeypoint.new(0.27, Color3.fromRGB(162, 0, 0)), ColorSequenceKeypoint.new(0.99, Color3.fromRGB(253, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
+UIGradient.Parent = Frame
+
+TogglePanel.Name = "TogglePanel"
+TogglePanel.Parent = Frame
+TogglePanel.Active = true
+TogglePanel.BackgroundColor3 = Color3.fromRGB(51, 0, 0)
+TogglePanel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TogglePanel.BorderSizePixel = 0
+TogglePanel.LayoutOrder = 1
+TogglePanel.Position = UDim2.new(0.0211925376, 0, 0.0417520031, 0)
+TogglePanel.Size = UDim2.new(0, 402, 0, 147)
+TogglePanel.ZIndex = 8
+
+TextLabel.Parent = TogglePanel
+TextLabel.Active = true
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BorderSizePixel = 0
+TextLabel.LayoutOrder = 1
+TextLabel.Position = UDim2.new(0.225362301, 0, -0.0554792956, 0)
+TextLabel.Size = UDim2.new(0, 210, 0, 36)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "ADOPT ME"
+TextLabel.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 19.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextWrapped = true
+
+TextButton.Parent = TogglePanel
+TextButton.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TextButton.BorderColor3 = Color3.fromRGB(180, 180, 180)
+TextButton.BorderSizePixel = 0
+TextButton.LayoutOrder = 1
+TextButton.Position = UDim2.new(0.148319468, 0, 0.629629552, 0)
+TextButton.Size = UDim2.new(0, 98, 0, 25)
+TextButton.Font = Enum.Font.FredokaOne
+TextButton.Text = "OFF"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 27.000
+TextButton.TextWrapped = true
+
+UICorner_2.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_2.Parent = TextButton
+
+UICorner_3.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_3.Parent = TogglePanel
+
+TextLabel_2.Parent = TogglePanel
+TextLabel_2.Active = true
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.LayoutOrder = 1
+TextLabel_2.Position = UDim2.new(0.225362241, 0, 0.806198001, 0)
+TextLabel_2.Size = UDim2.new(0, 220, 0, 36)
+TextLabel_2.Font = Enum.Font.FredokaOne
+TextLabel_2.Text = "Made by Ignite Scripts"
+TextLabel_2.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_2.TextSize = 16.000
+TextLabel_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = TogglePanel
+TextLabel_3.Active = true
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.LayoutOrder = 1
+TextLabel_3.Position = UDim2.new(0.89869529, 0, 0.806198001, 0)
+TextLabel_3.Size = UDim2.new(0, 30, 0, 36)
+TextLabel_3.Font = Enum.Font.FredokaOne
+TextLabel_3.Text = "V1"
+TextLabel_3.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_3.TextSize = 16.000
+TextLabel_3.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = TogglePanel
+TextLabel_4.Active = true
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.LayoutOrder = 1
+TextLabel_4.Position = UDim2.new(0.275736392, 0, 0.196220756, 0)
+TextLabel_4.Size = UDim2.new(0, 180, 0, 33)
+TextLabel_4.Font = Enum.Font.FredokaOne
+TextLabel_4.Text = "TRADE SCAM"
+TextLabel_4.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 23.000
+TextLabel_4.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextWrapped = true
+
+TextLabel_5.Parent = TogglePanel
+TextLabel_5.Active = true
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BorderSizePixel = 0
+TextLabel_5.LayoutOrder = 1
+TextLabel_5.Position = UDim2.new(0.0979453251, 0, 0.413908035, 0)
+TextLabel_5.Size = UDim2.new(0, 137, 0, 27)
+TextLabel_5.Font = Enum.Font.FredokaOne
+TextLabel_5.Text = "FREEZE"
+TextLabel_5.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 23.000
+TextLabel_5.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextWrapped = true
+
+TextLabel_6.Parent = TogglePanel
+TextLabel_6.Active = true
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BorderSizePixel = 0
+TextLabel_6.LayoutOrder = 1
+TextLabel_6.Position = UDim2.new(0.560201883, 0, 0.413908035, 0)
+TextLabel_6.Size = UDim2.new(0, 137, 0, 27)
+TextLabel_6.Font = Enum.Font.FredokaOne
+TextLabel_6.Text = "ACCEPT"
+TextLabel_6.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 23.000
+TextLabel_6.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextWrapped = true
+
+TextButton_2.Parent = TogglePanel
+TextButton_2.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TextButton_2.BorderColor3 = Color3.fromRGB(180, 180, 180)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.LayoutOrder = 1
+TextButton_2.Position = UDim2.new(0.610576034, 0, 0.629629552, 0)
+TextButton_2.Size = UDim2.new(0, 98, 0, 25)
+TextButton_2.Font = Enum.Font.FredokaOne
+TextButton_2.Text = "OFF"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 27.000
+TextButton_2.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_4.Parent = TextButton_2
+
+Frame_2.Parent = TogglePanel
+Frame_2.Active = true
+Frame_2.BackgroundColor3 = Color3.fromRGB(179, 0, 0)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderSizePixel = 0
+Frame_2.LayoutOrder = 1
+Frame_2.Position = UDim2.new(0.486466736, 0, 0.41762495, 0)
+Frame_2.Size = UDim2.new(0, 7, 0, 63)
+Frame_2.ZIndex = 3
+
+UICorner_5.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_5.Parent = Frame_2
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(204, 0, 0)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(129, 0, 0)), ColorSequenceKeypoint.new(0.27, Color3.fromRGB(162, 0, 0)), ColorSequenceKeypoint.new(0.99, Color3.fromRGB(253, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
+UIGradient_2.Parent = Frame_2
+
+Frame_3.Parent = Frame
+Frame_3.Active = true
+Frame_3.BackgroundColor3 = Color3.fromRGB(179, 0, 0)
+Frame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_3.BorderSizePixel = 0
+Frame_3.LayoutOrder = 1
+Frame_3.Position = UDim2.new(-0.00150902162, 0, 0.180501297, 0)
+Frame_3.Size = UDim2.new(0, 420, 0, 6)
+Frame_3.ZIndex = 16
+
+UICorner_6.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_6.Parent = Frame_3
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(204, 0, 0)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(129, 0, 0)), ColorSequenceKeypoint.new(0.27, Color3.fromRGB(162, 0, 0)), ColorSequenceKeypoint.new(0.99, Color3.fromRGB(253, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
+UIGradient_3.Parent = Frame_3
+
+LoadingFrame.Name = "LoadingFrame"
+LoadingFrame.Parent = Frame
+LoadingFrame.BackgroundColor3 = Color3.fromRGB(51, 0, 0)
+LoadingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LoadingFrame.BorderSizePixel = 0
+LoadingFrame.LayoutOrder = 18
+LoadingFrame.Position = UDim2.new(0.0211925693, 0, 0.0417520031, 0)
+LoadingFrame.Size = UDim2.new(0, 401, 0, 147)
+LoadingFrame.ZIndex = 10
+
+UICorner_7.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_7.Parent = LoadingFrame
+
+BarBackground.Name = "BarBackground"
+BarBackground.Parent = LoadingFrame
+BarBackground.BackgroundColor3 = Color3.fromRGB(204, 0, 0)
+BarBackground.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BarBackground.BorderSizePixel = 0
+BarBackground.Position = UDim2.new(0.118035905, 0, 0.591836751, 0)
+BarBackground.Size = UDim2.new(0, 314, 0, 30)
+
+UICorner_8.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_8.Parent = BarBackground
+
+BarFill.Name = "BarFill"
+BarFill.Parent = BarBackground
+BarFill.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+BarFill.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BarFill.BorderSizePixel = 0
+BarFill.Size = UDim2.new(0, 0, 1, 0)
+
+UICorner_9.CornerRadius = UDim.new(0.100000001, 10)
+UICorner_9.Parent = BarFill
+
+PercentLabel.Name = "PercentLabel"
+PercentLabel.Parent = BarBackground
+PercentLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PercentLabel.BackgroundTransparency = 1.000
+PercentLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PercentLabel.BorderSizePixel = 0
+PercentLabel.Size = UDim2.new(0.996815264, 0, 1, 0)
+PercentLabel.Font = Enum.Font.FredokaOne
+PercentLabel.Text = "0%"
+PercentLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+PercentLabel.TextSize = 14.000
+
+TextLabel_7.Parent = BarBackground
+TextLabel_7.Active = true
+TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BackgroundTransparency = 1.000
+TextLabel_7.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.BorderSizePixel = 0
+TextLabel_7.LayoutOrder = 1
+TextLabel_7.Position = UDim2.new(0.14877066, 0, -3.12894893, 0)
+TextLabel_7.Size = UDim2.new(0, 210, 0, 36)
+TextLabel_7.Font = Enum.Font.FredokaOne
+TextLabel_7.Text = "ADOPT ME"
+TextLabel_7.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_7.TextScaled = true
+TextLabel_7.TextSize = 19.000
+TextLabel_7.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_7.TextWrapped = true
+
+TextLabel_8.Parent = BarBackground
+TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BackgroundTransparency = 1.000
+TextLabel_8.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.BorderSizePixel = 0
+TextLabel_8.Position = UDim2.new(0.0909447148, 0, -1.66908467, 0)
+TextLabel_8.Size = UDim2.new(0, 250, 0, 39)
+TextLabel_8.Font = Enum.Font.FredokaOne
+TextLabel_8.Text = " BYPASSING ANTI CHEAT"
+TextLabel_8.TextColor3 = Color3.fromRGB(204, 0, 0)
+TextLabel_8.TextScaled = true
+TextLabel_8.TextSize = 19.000
+TextLabel_8.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_8.TextWrapped = true
+
+-- Scripts:
+
+local function MSQVPX_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local button = script.Parent
+	local isOn = false
+	
+	button.MouseButton1Click:Connect(function()
+		isOn = not isOn
+	
+		if isOn then
+			button.Text = "ON"
+			button.BackgroundColor3 = Color3.fromRGB(0, 200, 0) -- Green
+		else
+			button.Text = "OFF"
+			button.BackgroundColor3 = Color3.fromRGB(170, 0, 0) -- Gray
+		end
+	
+		-- You can trigger functionality here
+		-- Example: game.Lighting.SunRays.Enabled = isOn
+	end)
+	
+end
+coroutine.wrap(MSQVPX_fake_script)()
+local function MBZAA_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	local button = script.Parent
+	local isOn = false
+	
+	button.MouseButton1Click:Connect(function()
+		isOn = not isOn
+	
+		if isOn then
+			button.Text = "ON"
+			button.BackgroundColor3 = Color3.fromRGB(0, 200, 0) -- Green
+		else
+			button.Text = "OFF"
+			button.BackgroundColor3 = Color3.fromRGB(170, 0, 0) -- Gray
+		end
+	
+		-- You can trigger functionality here
+		-- Example: game.Lighting.SunRays.Enabled = isOn
+	end)
+	
+end
+coroutine.wrap(MBZAA_fake_script)()
+local function LTLQQ_fake_script() -- LoadingFrame.LocalScript 
+	local script = Instance.new('LocalScript', LoadingFrame)
+
+	local bar = script.Parent:WaitForChild("BarBackground")
+	local fill = bar:WaitForChild("BarFill")
+	local label = bar:WaitForChild("PercentLabel")
+	local loadingFrame = script.Parent
+	
+	for i = 0, 100 do
+		fill.Size = UDim2.new(i / 100, 0, 1, 0)
+		label.Text = i .. "%"
+		wait(0.03)
+	end
+	
+	-- Wait before removing
+	wait(0.5)
+	loadingFrame.Visible = false
+	
+end
+coroutine.wrap(LTLQQ_fake_script)()
+
+-- Draggable GUI function
+local dragging = false
+local dragInput, dragStart, startPos
+
+-- Function to start dragging
+Frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = Frame.Position
+    end
+end)
+
+-- Function to stop dragging
+Frame.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = false
+    end
+end)
+
+-- Function to update position while dragging
+Frame.InputChanged:Connect(function(input)
+    if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - dragStart
+        Frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
