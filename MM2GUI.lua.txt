@@ -1,0 +1,375 @@
+local WeaponName
+local FunctionCall
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UIPath
+if LocalPlayer.PlayerGui.MainGUI.Game:FindFirstChild("Inventory") ~= nil then
+    UIPath = LocalPlayer.PlayerGui.MainGUI.Game.Inventory.Main
+else
+    UIPath = LocalPlayer.PlayerGui.MainGUI.Lobby.Screens.Inventory.Main
+end
+local function VisualDupe()
+    wait(math.random(1, 3))
+    for i,v in pairs(UIPath.Weapons.Items.Container:GetChildren()) do
+        for i,v in pairs(v.Container:GetChildren()) do
+            if v.Name == "Christmas" or v.Name == "Halloween" then
+                for i,v in pairs(v.Container:GetChildren()) do
+                    if v:IsA("Frame") and v.ItemName.Label.Text == WeaponName then
+                        local amount = v.Container.Amount.Text
+                        if amount == "" or amount == "None" then
+                            v.Container.Amount.Text = "x2"
+                        else
+                            local num = tonumber(amount:match("x(%d+)"))
+                            if num then
+                                v.Container.Amount.Text = "x" .. tostring(num + 1)
+                            end
+                        end
+                    end
+                end
+            else
+                if v:IsA("Frame") and v.ItemName.Label.Text == WeaponName then
+                    local amount = v.Container.Amount.Text
+                    if amount == "" or amount == "None" then
+                        v.Container.Amount.Text = "x2"
+                    else
+                        local num = tonumber(amount:match("x(%d+)"))
+                        if num then
+                            v.Container.Amount.Text = "x" .. tostring(num + 1)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+local function InventoryDupe()
+    wait(math.random(3, 5))
+    for i,v in pairs(UIPath.Weapons.Items.Container:GetChildren()) do
+        for i,v in pairs(v.Container:GetChildren()) do
+            if v.Name == "Christmas" or v.Name == "Halloween" then
+                for i,v in pairs(v.Container:GetChildren()) do
+                    if v:IsA("Frame") then
+                        if v.ItemName.Label.Text ~= "Default Knife" and v.ItemName.Label.Text ~= "Default Gun" then
+                            local amount = v.Container.Amount.Text
+                            if amount == "" or amount == "None" then
+                                v.Container.Amount.Text = "x2"
+                            else
+                                local num = tonumber(amount:match("x(%d+)"))
+                                if num then
+                                    v.Container.Amount.Text = "x" .. tostring(num * 2)
+                                end
+                            end
+                        end
+                    end
+                end
+            else
+                if v:IsA("Frame") then
+                    if v.ItemName.Label.Text ~= "Default Knife" and v.ItemName.Label.Text ~= "Default Gun" then
+                        local amount = v.Container.Amount.Text
+                        if amount == "" or amount == "None" then
+                            v.Container.Amount.Text = "x2"
+                        else
+                            local num = tonumber(amount:match("x(%d+)"))
+                            if num then
+                                v.Container.Amount.Text = "x" .. tostring(num * 2)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    for i,v in pairs(UIPath.Pets.Items.Container.Current.Container:GetChildren()) do
+        if v:IsA("Frame") then
+            local amount = v.Container.Amount.Text
+            if amount == "" or amount == "None" then
+                v.Container.Amount.Text = "x2"
+            else
+                local num = tonumber(amount:match("x(%d+)"))
+                if num then
+                    v.Container.Amount.Text = "x" .. tostring(num * 2)
+                end
+            end
+        end
+    end
+end
+local OrionLib = loadstring(game:HttpGet(('https://pastebin.com/raw/WRUyYTdY')))()
+OrionLib:MakeNotification({
+    Name = "Ignite Script | MM2",
+    Content = "Ignite Script: Murder Mystery 2",
+    Image = "rbxassetid://7733964719",
+    Time = 5
+})
+local Window = OrionLib:MakeWindow({
+    Name = "Ignite Script GUI",
+    HidePremium = false,
+    IntroText = "Ignite Script V5",
+    SaveConfig = true,
+    ConfigFolder = "IgniteScriptConfig"
+})
+local InfoTab = Window:MakeTab({
+    Name = "Information",
+    Icon = "rbxassetid://7733964719",
+    PremiumOnly = false
+})
+local InfoSection = InfoTab:AddSection({
+    Name = "Script Information"
+})
+InfoTab:AddParagraph("MM2 Dupe Status!", "The MM2 Dupe Is Currenty 100% Working. If You Find Any Errors/Bugs, Please Report Them To 'Ignite Script' On Discord!")
+InfoTab:AddLabel("Script Hub Made By The Ignite Script!")
+InfoTab:AddButton({
+    Name = "Copy Discord Invite",
+    Callback = function()
+        setclipboard("discord.gg/a")
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Successfully Copied Discord Invite!",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+    end
+})
+local DupeTab = Window:MakeTab({
+    Name = "Weapon Dupe",
+    Icon = "rbxassetid://7734022107",
+    PremiumOnly = false
+})
+local DupeSection = DupeTab:AddSection({
+    Name = "Weapon Duplication"
+})
+DupeTab:AddTextbox({
+    Name = "Weapon Name",
+    Default = "Harvester",
+    TextDisappear = false,
+    Callback = function(Value)
+        WeaponName = Value
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Selected Weapon: "..tostring(WeaponName).."",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+    end
+})
+DupeTab:AddTextbox({
+    Name = "Dupe Amount",
+    Default = "5",
+    TextDisappear = false,
+    Callback = function(DupeAmount)
+        FunctionCall = DupeAmount
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Selected Amount: "..tostring(FunctionCall).."",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+    end
+})
+DupeTab:AddButton({
+    Name = "Start Duplication Proccess",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Started Duplication For: ".. tostring(WeaponName) ..", " .. tostring(FunctionCall) .. " times.",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+        for i = 1, FunctionCall do
+        VisualDupe()
+        end
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Successfully duplicated ".. tostring(WeaponName) .." " .. tostring(FunctionCall) .. " times.",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+    end    
+})
+local DupeInvSection = DupeTab:AddSection({
+    Name = "Inventory Duplication"
+})
+DupeTab:AddButton({
+    Name = "Start Inventory Dupe Proccess",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Attempting To Duplicate Whole Weapon Inventory.",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+        InventoryDupe()
+        wait(1)
+        OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Successfully Duplicated Whole Weapon Inventory, Enjoy!",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+    end    
+})
+DupeTab:AddParagraph("Tutorial For Weapon Duper!", "First, Enter The Weapon Name You Wanna Dupe. Then, Enter The Amount Of Time You Want To Dupe It. Lasty, Click 'Toggle Duplication Proccess' And Your Item Should Dupe! YOU CANNOT GET BANNED FOR THIS!")
+------
+local AutoFarmTab = Window:MakeTab({
+    Name = "AutoFarm",
+    Icon = "rbxassetid://7733673056",
+    PremiumOnly = false
+})
+
+local AutoFarmSection = AutoFarmTab:AddSection({
+    Name = "AutoFarm Scripts"
+})
+
+AutoFarmTab:AddButton({
+    Name = "Nexus",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+    end    
+})
+
+AutoFarmTab:AddButton({
+    Name = "YARHM",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic-octo-invention/main/yarhm.lua", false))()
+    end    
+})
+
+AutoFarmTab:AddParagraph("Note For AutoFarm!", "This is newest auto farm script with no error and you can smoothly auto farm so enjoy using it!")
+------
+local SpawnerTab = Window:MakeTab({
+    Name = "Weapons Spawner",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local SpawnerSection = SpawnerTab:AddSection({
+    Name = "Get All Weapons"
+})
+
+SpawnerTab:AddButton({
+    Name = "Weapons Spawn",
+    Callback = function()
+    OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Successfully Spawn All Weapons",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })
+local WeaponOwnedRange = {
+  min=1,
+  max=150
+}
+
+local DataBase, PlayerData = require(game:GetService("ReplicatedStorage").Database.Sync.Item), require(game:GetService("ReplicatedStorage").Modules.ProfileData)
+
+local newOwned = {}
+
+for i, v in pairs(DataBase) do
+    newOwned[i] = math.random(WeaponOwnedRange.min, WeaponOwnedRange.max) -- newOwned[Weapon]: ItemCount
+end
+
+local PlayerWeapons = PlayerData.Weapons
+
+game:GetService("RunService"):BindToRenderStep("InventoryUpdate", 0, function()
+  PlayerWeapons.Owned = newOwned
+end)
+game.Players.LocalPlayer.Character:BreakJoints()
+end
+})
+------
+local ChangerTab = Window:MakeTab({
+    Name = "Weapons Changer",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local ChangerSection = ChangerTab:AddSection({
+    Name = "Change Your Weapon"
+})
+
+local Weapons = require(game:GetService("ReplicatedStorage").Database.Sync.Item)
+
+local function NameMatch(name, search)
+    local sanitizedName = name:gsub("_G_%d%d%d%d", ""):gsub("_K_%d%d%d%d", ""):lower()
+    local sanitizedSearch = search:lower()
+    return sanitizedName:find(sanitizedSearch, 1, true) ~= nil
+end
+
+local WeaponNames = {}
+for WeaponName, _ in pairs(Weapons) do
+    table.insert(WeaponNames, WeaponName)
+end
+
+local fromWeapon = ""
+local toWeapon = ""
+
+ChangerTab:AddTextbox({
+    Name = "From Weapon",
+    Default = "Put Weapon Name",
+    TextDisappear = false,
+    Callback = function(value)
+        fromWeapon = value
+    end
+})
+
+ChangerTab:AddDropdown({
+    Name = "To Weapon",
+    Default = "",
+    Options = WeaponNames,
+    Callback = function(value)
+        toWeapon = value
+    end
+})
+
+ChangerTab:AddButton({
+    Name = "Change",
+    Callback = function()
+    OrionLib:MakeNotification({
+            Name = "Ignite Script | MM2",
+            Content = "Successfully Change Weapon. Please Reset Your Avatar.",
+            Image = "rbxassetid://7733964719",
+            Time = 5
+        })       
+        local foundFromWeapons = {}
+        local foundToWeapons = {}
+
+        for WeaponName, _ in pairs(Weapons) do
+            if NameMatch(WeaponName, fromWeapon) then
+                table.insert(foundFromWeapons, WeaponName)
+            end
+            if NameMatch(WeaponName, toWeapon) then
+                table.insert(foundToWeapons, WeaponName)
+            end
+        end
+
+        if #foundFromWeapons > 0 and #foundToWeapons > 0 then
+            for _, foundFromWeapon in ipairs(foundFromWeapons) do
+                for _, foundToWeapon in ipairs(foundToWeapons) do
+                    Weapons[foundFromWeapon] = {}
+
+                    for i, v in pairs(Weapons[foundToWeapon]) do
+                        Weapons[foundFromWeapon][i] = v
+                    end
+                    game:GetService("ReplicatedStorage").Remotes.Inventory.Equip:FireServer(foundToWeapon)
+                end
+            end
+        else
+            print("Weapon NOT FOUND")
+        end
+    end
+})
+ChangerTab:AddParagraph("Tutorial For Weapon Spawner!", "First, Enter The Weapon Name You Wanna Change Item. Then, Choose Item You Want To Spawn Item Then Just Reset To Spawn The Item.")
+------
+local ChangelogsTab = Window:MakeTab({
+    Name = "Changelogs",
+    Icon = "rbxassetid://8997388036",
+    PremiumOnly = false
+})
+local ChangelogsSection = ChangelogsTab:AddSection({
+    Name = "Script Changes"
+})
+ChangelogsTab:AddParagraph("Added Newest Auto Farm")
+ChangelogsTab:AddParagraph("Added Weapon Dupe")
+ChangelogsTab:AddParagraph("Updated Weapon Spawner")
+ChangelogsTab:AddParagraph("Added Weapon Changer")
+ChangelogsTab:AddParagraph("Credits", "Created by Ignite Script, developed by Mitch")
+OrionLib:Init()
