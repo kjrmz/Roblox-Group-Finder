@@ -1,0 +1,291 @@
+-- LocalScript for Adopt Me Trade Scam GUI (mobile-friendly version)
+
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Destroy existing GUI if re-executed
+if playerGui:FindFirstChild("AdoptTradeScamGui") then
+	playerGui.AdoptTradeScamGui:Destroy()
+end
+
+local LoadingGui = Instance.new("ScreenGui")
+LoadingGui.Name = "IntroLoadingGui"
+LoadingGui.Parent = playerGui
+LoadingGui.DisplayOrder = 999
+LoadingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LoadingGui.ResetOnSpawn = false
+
+local Panel = Instance.new("Frame")
+Panel.Size = UDim2.new(0, 360, 0, 120)
+Panel.Position = UDim2.new(0.5, 0, 0.5, 0)
+Panel.AnchorPoint = Vector2.new(0.5, 0.5)
+Panel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Panel.BorderSizePixel = 0
+Panel.Parent = LoadingGui
+Instance.new("UICorner", Panel).CornerRadius = UDim.new(0, 16)
+
+-- Logo (with space below it)
+local Logo = Instance.new("ImageLabel")
+Logo.Size = UDim2.new(0, 50, 0, 50)
+Logo.Position = UDim2.new(0, 10, 0, 10) -- Top with space below
+Logo.BackgroundTransparency = 1
+Logo.Image = "rbxassetid://99276009879978"
+Logo.Parent = Panel
+Instance.new("UICorner", Logo).CornerRadius = UDim.new(1, 0)
+
+-- Channel name (next to logo)
+local NameLabel = Instance.new("TextLabel")
+NameLabel.Text = "Youtube: Ignite Scripts"
+NameLabel.Font = Enum.Font.SourceSansBold
+NameLabel.TextSize = 20
+NameLabel.TextColor3 = Color3.new(1, 1, 1)
+NameLabel.BackgroundTransparency = 1
+NameLabel.Position = UDim2.new(0, 70, 0, 14)
+NameLabel.Size = UDim2.new(1, -80, 0, 22)
+NameLabel.TextXAlignment = Enum.TextXAlignment.Left
+NameLabel.Parent = Panel
+
+-- Bypassing label (spaced under logo)
+local BypassLabel = Instance.new("TextLabel")
+BypassLabel.Text = "Bypassing Anti Cheat, Please Wait"
+BypassLabel.Font = Enum.Font.SourceSansItalic
+BypassLabel.TextSize = 18
+BypassLabel.TextColor3 = Color3.new(1, 1, 1)
+BypassLabel.BackgroundTransparency = 1
+BypassLabel.Position = UDim2.new(0, 70, 0, 36)
+BypassLabel.Size = UDim2.new(1, -80, 0, 20)
+BypassLabel.TextXAlignment = Enum.TextXAlignment.Left
+BypassLabel.Parent = Panel
+
+-- Animated dots on bypass label
+task.spawn(function()
+	local baseText = "Bypassing Anti Cheat, Please Wait"
+	while BypassLabel and BypassLabel.Parent do
+		for i = 0, 3 do
+			BypassLabel.Text = baseText .. string.rep(".", i)
+			task.wait(0.4)
+		end
+	end
+end)
+
+-- Loading bar background
+local BarBackground = Instance.new("Frame")
+BarBackground.Size = UDim2.new(0.9, 0, 0, 18)
+BarBackground.Position = UDim2.new(0.05, 0, 0, 62)
+BarBackground.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+BarBackground.BorderSizePixel = 0
+BarBackground.Parent = Panel
+Instance.new("UICorner", BarBackground).CornerRadius = UDim.new(1, 0)
+
+-- Loading bar fill
+local LoadingBar = Instance.new("Frame")
+LoadingBar.Size = UDim2.new(0, 0, 1, 0)
+LoadingBar.BackgroundColor3 = Color3.fromRGB(0, 128, 0)
+LoadingBar.BorderSizePixel = 0
+LoadingBar.Parent = BarBackground
+Instance.new("UICorner", LoadingBar).CornerRadius = UDim.new(1, 0)
+
+-- Subscribe text (no space under it)
+local SubscribeText = Instance.new("TextLabel")
+SubscribeText.Text = "Subscribe To Ignite Scripts"
+SubscribeText.Font = Enum.Font.SourceSans
+SubscribeText.TextSize = 18
+SubscribeText.TextColor3 = Color3.fromRGB(255, 255, 255)
+SubscribeText.BackgroundTransparency = 1
+SubscribeText.Position = UDim2.new(0.05, 0, 0, 90)
+SubscribeText.Size = UDim2.new(0.5, -10, 0, 20)
+SubscribeText.TextXAlignment = Enum.TextXAlignment.Left
+SubscribeText.Parent = Panel
+
+-- Copy button next to it (no space below)
+local CopyButton = Instance.new("TextButton")
+CopyButton.Size = UDim2.new(0.4, 0, 0, 20)
+CopyButton.Position = UDim2.new(0.55, 0, 0, 90)
+CopyButton.Text = "Copy Channel Link"
+CopyButton.Font = Enum.Font.SourceSansSemibold
+CopyButton.TextSize = 16
+CopyButton.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+CopyButton.TextColor3 = Color3.new(1, 1, 1)
+CopyButton.Parent = Panel
+Instance.new("UICorner", CopyButton).CornerRadius = UDim.new(0, 8)
+
+CopyButton.MouseButton1Click:Connect(function()
+	if setclipboard then
+		setclipboard("https://www.youtube.com/@IgniteScripts")
+		CopyButton.Text = "Copied!"
+		task.wait(1)
+		CopyButton.Text = "Copy Channel Link"
+	end
+end)
+
+-- Loading animation
+local steps = 100
+local delayTime = 3 / steps
+for i = 1, steps do
+	LoadingBar.Size = UDim2.new(i / steps, 0, 1, 0)
+	task.wait(delayTime)
+end
+
+-- Fade out everything
+for i = 1, 10 do
+	local t = i / 10
+	Panel.BackgroundTransparency = t
+	Logo.ImageTransparency = t
+	NameLabel.TextTransparency = t
+	BypassLabel.TextTransparency = t
+	LoadingBar.BackgroundTransparency = t
+	BarBackground.BackgroundTransparency = t
+	SubscribeText.TextTransparency = t
+	CopyButton.BackgroundTransparency = t
+	CopyButton.TextTransparency = t
+	task.wait(0.04)
+end
+
+LoadingGui:Destroy()
+
+
+local screenGui = Instance.new("ScreenGui", playerGui)
+screenGui.Name = "AdoptTradeScamGui"
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+screenGui.ResetOnSpawn = false
+screenGui.DisplayOrder = 1000
+
+-- Main panel
+local Panel = Instance.new("Frame", screenGui)
+Panel.Size = UDim2.new(0, 300, 0, 220)
+Panel.Position = UDim2.new(0.5, 0, 0.5, 0)
+Panel.AnchorPoint = Vector2.new(0.5, 0.5)
+Panel.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+Panel.BorderSizePixel = 0
+Panel.Active = true
+Panel.Draggable = true
+Instance.new("UICorner", Panel).CornerRadius = UDim.new(0, 12)
+
+-- Outline
+local stroke = Instance.new("UIStroke", Panel)
+stroke.Color = Color3.fromRGB(210, 42, 42)
+stroke.Thickness = 2
+
+-- Title
+local title = Instance.new("TextLabel", Panel)
+title.Size = UDim2.new(1, 0, 0, 30)
+title.Position = UDim2.new(0, 0, 0, 5)
+title.BackgroundTransparency = 1
+title.Text = "Adopt Me Trade Scam"
+title.Font = Enum.Font.FredokaOne
+title.TextColor3 = Color3.new(1,1,1)
+title.TextScaled = true
+
+-- Bypass Button
+local BypassBtn = Instance.new("TextButton", Panel)
+BypassBtn.Size = UDim2.new(0.9, 0, 0, 35)
+BypassBtn.Position = UDim2.new(0.05, 0, 0, 40)
+BypassBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+BypassBtn.Text = "Bypass Anti Cheat"
+BypassBtn.Font = Enum.Font.FredokaOne
+BypassBtn.TextColor3 = Color3.new(1, 1, 1)
+BypassBtn.TextScaled = true
+Instance.new("UICorner", BypassBtn).CornerRadius = UDim.new(0, 8)
+
+-- Toggle Buttons Frame
+local toggleFrame = Instance.new("Frame", Panel)
+toggleFrame.Size = UDim2.new(0.9, 0, 0, 35)
+toggleFrame.Position = UDim2.new(0.05, 0, 0, 80)
+toggleFrame.BackgroundTransparency = 1
+
+-- ON Button
+local onBtn = Instance.new("TextButton", toggleFrame)
+onBtn.Size = UDim2.new(0.48, -2, 1, 0)
+onBtn.Position = UDim2.new(0, 0, 0, 0)
+onBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+onBtn.Text = "ON"
+onBtn.Font = Enum.Font.FredokaOne
+onBtn.TextColor3 = Color3.new(1, 1, 1)
+onBtn.TextScaled = true
+Instance.new("UICorner", onBtn).CornerRadius = UDim.new(0, 6)
+
+-- OFF Button
+local offBtn = Instance.new("TextButton", toggleFrame)
+offBtn.Size = UDim2.new(0.48, -2, 1, 0)
+offBtn.Position = UDim2.new(0.52, 0, 0, 0)
+offBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+offBtn.Text = "OFF"
+offBtn.Font = Enum.Font.FredokaOne
+offBtn.TextColor3 = Color3.new(1, 1, 1)
+offBtn.TextScaled = true
+Instance.new("UICorner", offBtn).CornerRadius = UDim.new(0, 6)
+
+-- Warning Label
+local warnLabel = Instance.new("TextLabel", Panel)
+warnLabel.Size = UDim2.new(1, -20, 0, 20)
+warnLabel.Position = UDim2.new(0.5, 0, 0, 120)
+warnLabel.AnchorPoint = Vector2.new(0.5, 0)
+warnLabel.BackgroundTransparency = 1
+warnLabel.Text = "*Must be on trade before clicking this button*"
+warnLabel.Font = Enum.Font.FredokaOne
+warnLabel.TextColor3 = Color3.fromRGB(255, 200, 0)
+warnLabel.TextScaled = true
+
+-- Glitch Trade Button
+local GlitchBtn = Instance.new("TextButton", Panel)
+GlitchBtn.Size = UDim2.new(0.9, 0, 0, 35)
+GlitchBtn.Position = UDim2.new(0.05, 0, 0, 145)
+GlitchBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+GlitchBtn.Text = "Glitch Trade"
+GlitchBtn.Font = Enum.Font.FredokaOne
+GlitchBtn.TextColor3 = Color3.new(1, 1, 1)
+GlitchBtn.TextScaled = true
+Instance.new("UICorner", GlitchBtn).CornerRadius = UDim.new(0, 8)
+
+-- Credits
+local credits = Instance.new("TextLabel", Panel)
+credits.Size = UDim2.new(1, 0, 0, 20)
+credits.Position = UDim2.new(0, 0, 1, -30)
+credits.BackgroundTransparency = 1
+credits.Text = "Made by Ignite Scripts"
+credits.Font = Enum.Font.FredokaOne
+credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+credits.TextScaled = true
+
+-- Notification function
+local function notify(titleText, msg)
+	task.delay(0.2, function()
+		game.StarterGui:SetCore("SendNotification", {
+			Title = titleText,
+			Text = msg,
+			Duration = 10
+		})
+	end)
+end
+
+-- Loading simulation function
+local function simulateLoading(button, originalText)
+	for i = 1, 100 do
+		button.Text = "Loading... " .. i .. "%"
+		task.wait(0.05)
+	end
+	button.Text = originalText
+end
+
+-- Bypass logic
+BypassBtn.MouseButton1Click:Connect(function()
+	simulateLoading(BypassBtn, "Bypass Anti Cheat")
+	notify("Bypass", "Bypass Successfully")
+end)
+
+onBtn.MouseButton1Click:Connect(function()
+	onBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+	offBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+	notify("Glitch Trade: On", "You can now trade!")
+end)
+
+offBtn.MouseButton1Click:Connect(function()
+	offBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+	onBtn.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+	notify("Glitch Trade: Off", "Trading is now disabled.")
+end)
+
+GlitchBtn.MouseButton1Click:Connect(function()
+	simulateLoading(GlitchBtn, "Glitch Trade")
+	notify("Glitch Trade Successfully", "Cooldown: 10s to prevent ban detection ⚠️")
+end)
