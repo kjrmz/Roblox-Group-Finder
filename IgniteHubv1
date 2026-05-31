@@ -1,6 +1,6 @@
 --[[
-    Halloween MM2 Hub - WindUI Version
-    Spooky themed Murder Mystery 2 script with Halloween features
+     MM2 Hub - WindUI Version
+    Spooky themed Murder Mystery 2 script with  features
 ]]
 
 local WindUI
@@ -52,7 +52,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/n9owns/Files/refs/hea
 -- */  Window  /* --
 local Window = WindUI:CreateWindow({
     Title = "Ignite Hub",
-    Author = "by Ignite Scripts • Halloween Edition",
+    Author = "by Ignite Scripts • MM2 Script",
     Folder = "ignitemm2hub",
     NewElements = true,
     
@@ -466,7 +466,7 @@ do
     MainTab:Space()
     
     MainTab:Section({
-        Title = "Murder Mystery 2 Halloween Update - A premium script with enhanced features, auto farming, ESP, and exclusive rewards!",
+        Title = "Murder Mystery 2 Latest Update - A premium script with enhanced features, auto farming, ESP, and exclusive rewards!",
         TextSize = isMobile and 14 or 16,
         TextTransparency = 0.3,
     })
@@ -1889,6 +1889,6 @@ Window.CurrentConfig:Save()
 
 WindUI:Notify({
     Title = "Ignite Hub Loaded!",
-    Content = "Welcome to the Halloween edition! Murder Mystery 2 Halloween Update!",
+    Content = "Welcome to the New Update! Murder Mystery 2 Update!",
     Time = 5
 })
