@@ -1,0 +1,2527 @@
+local ancientValues = {
+	["Corrupt"] = 900,
+    ["Gingerscope"] = 9300,
+    ["Traveler's Axe"] = 6200,
+    ["Harvester"] = 725,
+    ["Celestial"] = 625,
+    ["Icepiercer"] = 625,
+    ["Vampire's Axe"] = 425,
+    ["Icebreaker"] = 125,
+    ["Swirly Axe"] = 80,
+    ["Batwing"] = 65,
+    ["Elderwood Scythe"] = 65,
+    ["Hallowscythe"] = 48,
+    ["Logchopper"] = 25,
+    ["Icewing"] = 5,
+	["Traveler's Gun"] = 3600,
+	["Evergun"] = 2450,
+	["Turkey"] = 1650,
+	["Evergreen"] = 975,
+	["Blossom"] = 790,
+	["Sakura"] = 780,
+	["Vampire's Gun"] = 475,
+	["Constellation"] = 475,
+	["Bauble"] = 425,
+	["Darkshot"] = 490,
+	["Darksword"] = 465,
+    ["Bloom"] = 375,
+    ["Flora"] = 375,
+	["Bat"] = 275,
+	["Rainbow Gun"] = 225,
+	["Rainbow"] = 220,
+	["Candy"] = 190,
+	["Heartblade"] = 130,
+	["Flowerwood Gun"] = 140,
+	["Ocean"] = 140,
+	["Soul"] = 140,
+	["Spirit"] = 140,
+	["Flowerwood"] = 135,
+	["Waves"] = 135,
+	["Borealis"] = 110,
+	["Sugar"] = 100,
+	["Australis"] = 105,
+	["Luger"] = 70,
+	["Red Luger"] = 60,
+	["Swirly Gun"] = 60,
+	["Iceblaster"] = 65,
+	["Candleflame"] = 65,
+	["Elderwood Blade"] = 65,
+	["Makeshift"] = 65,
+	["Watergun"] = 70,
+	["Pearl"] = 63,
+	["Pearlshine"] = 63,
+	["Darkbringer"] = 60,
+	["Elderwood Revolver"] = 60,
+	["Phantom"] = 60,
+	["Spectre"] = 60,
+	["Lightbringer"] = 55,
+	["Swirly Blade"] = 45,
+	["Green Luger"] = 40,
+	["Hallowgun"] = 27,
+	["Laser"] = 32,
+	["Icebeam"] = 28,
+	["Iceflake"] = 28,
+	["Plasmabeam"] = 28,
+	["Plasmablade"] = 28,
+	["Amerilaser"] = 28,
+	["Blaster"] = 25,
+	["Nightblade"] = 25,
+	["Old Glory"] = 25,
+	["Nebula"] = 23,
+	["Shark"] = 27,
+	["Virtual"] = 23,
+	["Cookiecane"] = 23,
+	["Gingermint"] = 23,
+	["Gemstone"] = 25,
+	["Clockwork"] = 22,
+	["Eternalcane"] = 23,
+	["Ginger Luger"] = 23,
+	["Lugercane"] = 23,
+	["Pixel"] = 23,
+	["Slasher"] = 23,
+	["Gingerblade"] = 22,
+	["Heat"] = 20,
+	["BattleAxe II"] = 18,
+	["Deathshard"] = 20,
+	["Minty"] = 20,
+	["Tides"] = 15,
+	["Fang"] = 18,
+	["Jinglegun"] = 17,
+	["Spider"] = 17,
+	["Chill"] = 17,
+	["Bioblade"] = 15,
+	["Vampire's Edge"] = 15,
+	["Pumpking"] = 12,
+	["Frostsaber"] = 15,
+	["BattleAxe"] = 13,
+	["Flames"] = 10,
+	["Hallow's Edge"] = 10,
+	["Ice Dragon"] = 10,
+	["Ice Shard"] = 12,
+	["Winter's Edge"] = 12,
+	["Xmas"] = 12,
+	["Hallow's Blade"] = 10,
+	["Handsaw"] = 10,
+	["Eternal"] = 8,
+	["Eternal II"] = 8,
+	["Eternal III"] = 10,
+	["Eternal IV"] = 10,
+	["Boneblade"] = 7,
+	["Ghostblade"] = 7,
+	["Eggblade"] = 7,
+	["Frostbite"] = 7,
+	["Prismatic"] = 7,
+	["Saw"] = 7,
+	["Snowflake"] = 7,
+	["Peppermint"] = 5,
+	["Cookieblade"] = 4,
+	["Blue Seer"] = 3,
+	["Purple Seer"] = 3,
+	["Red Seer"] = 3,
+	["Seer"] = 3,
+	["Orange Seer"] = 2,
+	["Yellow Seer"] = 2,
+	["Chroma Traveler's Gun"] = 140000,
+    ["Chroma Evergun"] = 55000,
+    ["Chroma Evergreen"] = 34000,
+    ["Chroma Vampire's Gun"] = 15500,
+    ["Chroma Bauble"] = 11000,
+    ["Chroma Constellation"] = 10000,
+    ["Chroma Watergun"] = 2500,
+    ["Chroma Darkbringer"] = 110,
+    ["Chroma Lightbringer"] = 105,
+    ["Chroma Luger"] = 95,
+    ["Chroma Laser"] = 75,
+    ["Chroma Candleflame"] = 65,
+    ["Chroma Elderwood Blade"] = 65,
+    ["Chroma Swirly Gun"] = 65,
+    ["Chroma Cookiecane"] = 64,
+    ["Chroma Deathshard"] = 60,
+    ["Chroma Heat"] = 65,
+    ["Chroma Shark"] = 65,
+    ["Chroma Slasher"] = 60,
+    ["Chroma Tides"] = 60,
+    ["Chroma Fang"] = 60,
+    ["Chroma Gemstone"] = 55,
+    ["Chroma Gingerblade"] = 50,
+    ["Chroma Seer"] = 55,
+    ["Chroma Boneblade"] = 40,
+    ["Chroma Saw"] = 50,
+	["Ghost"] = 10,
+    ["America"] = 8,
+    ["Blood"] = 8,
+    ["Phaser"] = 7,
+    ["Shadow"] = 6,
+    ["Prince"] = 5,
+    ["Cowboy"] = 4,
+    ["Golden"] = 4,
+    ["Splitter"] = 3,
+    ["JD"] = 65,
+    ["Latte Gun"] = 120,
+    ["Latte Knife"] = 120,
+    ["Cotton Candy"] = 65,
+    ["Beach"] = 30,
+    ["Cavern Knife"] = 25,
+    ["Witched"] = 20,
+    ["Skulls"] = 10,
+    ["Icedriller"] = 8,
+    ["Spectral Knife"] = 8,
+    ["Vampire Gun"] = 8,
+    ["Green Elite"] = 7,
+    ["Santa's Spirit"] = 7,
+    ["Aurora Gun"] = 6,
+    ["Ginger Gun"] = 6,
+    ["Blue Elite"] = 6,
+    ["Ghost Knife"] = 6,
+    ["Traveler Gun"] = 5,
+    ["Broken"] = 5,
+    ["Santa's Magic"] = 5,
+    ["Red Scratch"] = 4,
+    ["Red Fire"] = 3,
+    ["Arctic Gun"] = 2,
+    ["Icecracker"] = 2,
+    ["Nightsky"] = 2,
+    ["Blue Scratch"] = 2,
+    ["Ghost Gun"] = 2,
+    ["Rupture"] = 1,
+    ["Tree Gun"] = 1,
+    ["Tree Knife"] = 1,
+    ["Web"] = 1,
+    ["Chromatic Knife"] = 1,
+    ["Cursed Knife"] = 1,
+    ["Frostfade Knife"] = 1,
+    ["Vampire Knife"] = 1,
+    ["Cavern Gun"] = 1,
+    ["Cane"] = 575,
+    ["Silent Night"] = 60,
+    ["Aurora"] = 28,
+    ["Icicles"] = 25,
+    ["Dungeon"] = 20,
+    ["Candy Swirl"] = 20,
+    ["Toxic"] = 20,
+    ["Vampire"] = 20,
+    ["Snakebite"] = 17,
+    ["Monster"] = 17,
+    ["Magma"] = 10,
+    ["Bats"] = 7,
+    ["Green Marble"] = 7,
+    ["Jack"] = 4,
+    ["Orange Marble"] = 3,
+    ["Floral"] = 2,
+    ["Starry"] = 2,
+    ["Darkknife"] = 1,
+    ["Gingerbread"] = 1,
+    ["Mummy"] = 1,
+	["Zombified Knife"] = 55,
+    ["Bones"] = 50,
+    ["Gingerbread Knife"] = 50,
+    ["Brains"] = 40,
+    ["Sweater Knife"] = 35,
+    ["Branches"] = 25,
+    ["Frozen Gun"] = 22,
+    ["Lights Gun"] = 20,
+    ["Mummy Gun"] = 20,
+    ["Zombie Gun"] = 20,
+    ["Potion Knife"] = 17,
+    ["Zombified Gun"] = 15,
+    ["Potion"] = 6,
+    ["Void"] = 8,
+    ["Frozen Knife"] = 5,
+    ["Gingerbread Gun"] = 5,
+    ["Zombie Knife"] = 5,
+    ["Lights Knife"] = 4,
+    ["Mummy Knife"] = 4,
+    ["Moons"] = 4,
+    ["Webs"] = 3,
+    ["Holly Gun"] = 3,
+    ["Snowflake"] = 3,
+    ["Wolf"] = 3,
+    ["Vampire"] = 3,
+    ["Nutcracker"] = 1,
+    ["Snowman Gun"] = 1,
+    ["Snowman Knife"] = 1,
+    ["Snowy"] = 1,
+    ["Wrapped Gun"] = 1,
+    ["Wrapped Knife"] = 1,
+    ["Gifted"] = 1,
+    ["Cane"] = 575,
+    ["Silent Night"] = 60,
+    ["Aurora"] = 28,
+    ["Icicles"] = 25,
+    ["Dungeon"] = 20,
+    ["Candy Swirl"] = 20,
+    ["Toxic"] = 20,
+    ["Snakebite"] = 17,
+    ["Monster"] = 17,
+    ["Magma"] = 10,
+    ["Bats"] = 7,
+    ["Green Marble"] = 7,
+    ["Jack"] = 4,
+    ["Orange Marble"] = 3,
+    ["Floral"] = 2,
+    ["Starry"] = 2,
+    ["Darkknife"] = 1,
+    ["Mummy"] = 1,
+    ["Glitch2"] = 60,
+    ["Glitch1"] = 60,
+    ["Bats"] = 170,
+    ["Gifts"] = 140,
+    ["Pine"] = 140,
+    ["Sparkle9"] = 35,
+    ["Sparkle8"] = 25,
+    ["Sparkle10"] = 25,
+    ["Ghoulish"] = 25,
+    ["Skool"] = 20,
+    ["Sparkle7"] = 20,
+    ["RIP"] = 18,
+    ["Tailslide"] = 17,
+    ["Coal"] = 15,
+    ["Ollie"] = 15,
+    ["Sidewinder"] = 15,
+    ["Sparkle5"] = 13,
+    ["Elf"] = 13,
+    ["Grave"] = 12,
+    ["CandyCorn"] = 10,
+    ["Sparkle4"] = 8,
+    ["Asteroid"] = 8,
+    ["Euro"] = 8,
+    ["Slime"] = 7,
+    ["Grind"] = 6,
+    ["Haunted"] = 5,
+    ["Combat II"] = 5,
+    ["Prism"] = 4,
+    ["Zombie"] = 4,
+    ["Snowman"] = 3,
+    ["Wrapped"] = 3,
+    ["Bones"] = 3,
+    ["Brains"] = 3,
+    ["Neon"] = 3,
+    ["Ecto"] = 3,
+    ["Witch"] = 3,
+    ["Indy"] = 3,
+    ["Hearts"] = 2,
+    ["Tulip"] = 2,
+    ["Goo"] = 2,
+    ["Patrick"] = 2,
+    ["Reptile"] = 2,
+    ["Bunny"] = 1,
+    ["Choco"] = 1,
+    ["Roses"] = 1,
+    ["Alex"] = 1,
+    ["Corl"] = 1,
+    ["Denis"] = 1,
+    ["Ornament"] = 1,
+    ["Ornament1"] = 1,
+    ["Ornament2"] = 1,
+    ["Passion"] = 1,
+    ["Sketchy"] = 1,
+    ["Sub"] = 1,
+    ["Sweetheart"] = 1,
+    ["Valentine"] = 1,
+    ["2015"] = 1,
+    ["Santa"] = 1,
+    ["Infected"] = 1,
+    ["TNL"] = 1,
+	["Zombie Dog"] = 200,
+    ["Elf"] = 120,
+    ["Blue Pumpkin"] = 75,
+    ["Black Cat"] = 60,
+    ["Dogey"] = 60,
+    ["Red Pumpkin"] = 55,
+    ["Green Pumpkin"] = 45,
+    ["Santa"] = 35,
+    ["Jetstream"] = 35,
+    ["Purple Pumpkin"] = 30,
+    ["Vampire Bat"] = 30,
+    ["Rudolph"] = 25,
+    ["Red Pumpkin"] = 25, -- Duplicate name, kept the first one
+    ["Eyeball"] = 25,
+    ["Overseer Eye"] = 25,
+    ["Nobledragon"] = 25,
+    ["Pumpkin"] = 20,
+    ["Piggy"] = 20,
+    ["Green Pumpkin"] = 20, -- Duplicate name, kept the first one
+    ["Reindeer"] = 20,
+    ["Fairy"] = 20,
+    ["Seahorsey"] = 18,
+    ["Chilly"] = 17,
+    ["Pengy"] = 17,
+    ["Tankie"] = 15,
+    ["<3"] = 12,
+    ["Mechbug"] = 8,
+    ["UFO"] = 7,
+    ["Red Pumpkin"] = 5, -- Duplicate name, kept the first one
+    ["Deathspeaker"] = 5,
+    ["Blue Pumpkin"] = 4, -- Duplicate name, kept the first one
+    ["Phoenix"] = 4,
+    ["Frostbird"] = 3,
+    ["Green Pumpkin"] = 2, -- Duplicate name, kept the first one
+    ["Electro"] = 2,
+    ["Sammy"] = 2,
+    ["Steambird"] = 2,
+    ["Badger"] = 1,
+    ["Ice Phoenix"] = 1,
+    ["Skelly"] = 1,
+    ["Traveller"] = 1,
+    ["Fire Bat"] = 1,
+    ["Fire Cat"] = 1,
+    ["Fire Bear"] = 1,
+    ["Fire Bunny"] = 1,
+    ["Fire Dog"] = 1,
+    ["Fire Fox"] = 1,
+    ["Fire Pig"] = 1,
+    ["Ghosty"] = 1,
+	["Chroma Fire Bunny"] = 20,
+    ["Chroma Fire Cat"] = 20,
+    ["Chroma Fire Dog"] = 18,
+    ["Chroma Fire Fox"] = 17,
+    ["Chroma Fire Bat"] = 15,
+    ["Chroma Fire Pig"] = 13,
+    ["Chroma Fire Bear"] = 12,
+}
+ 
+local LP = game:GetService("Players").LocalPlayer
+local PG = LP:WaitForChild("PlayerGui", 5)
+if not PG then return end
+ 
+local TG = PG:WaitForChild("TradeGUI", 5)
+if not TG then return end
+ 
+local CONT = TG:WaitForChild("Container", 5)
+if not CONT then return end
+ 
+local TR = CONT:WaitForChild("Trade", 5)
+if not TR then return end
+ 
+local YO = TR:WaitForChild("YourOffer", 5)
+if not YO then return end
+ 
+local YOC = YO:WaitForChild("Container", 5)
+if not YOC then return end
+ 
+local YOT = YO:WaitForChild("Title", 5)
+if not YOT then return end
+ 
+local TO = TR:WaitForChild("TheirOffer", 5)
+if not TO then return end
+ 
+local TOC = TO:WaitForChild("Container", 5)
+if not TOC then return end
+ 
+local TOT = TO:WaitForChild("Title", 5)
+if not TOT then return end
+ 
+local function GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+    if IS_CHROMA then
+        local CHROMA_NAME = "Chroma " .. ITEM_NAME
+        if ancientValues and ancientValues[CHROMA_NAME] then
+            return ancientValues[CHROMA_NAME]
+        end
+    end
+    if ancientValues then
+        return ancientValues[ITEM_NAME]
+    end
+    return nil -- Or some other default value if ancientValues is not found
+end
+ 
+local function UPDATE_OFFER_VALUES()
+    local YOUR_TOTAL_VALUE = 0
+    for I = 1, 4 do
+        local NEW_ITEM = YOC:WaitForChild("NewItem" .. I, 5)
+        if NEW_ITEM and NEW_ITEM.Visible then
+            local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+            local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+            local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+ 
+            if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS and CHROMA_TAG then
+                local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+                local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+                local IS_CHROMA = CHROMA_TAG.Visible
+ 
+                if ITEM_NAME_LBL and ITEM_NAME_LBL.Text ~= "" then
+                    local ITEM_NAME = ITEM_NAME_LBL.Text
+                    local AMOUNT = 1
+ 
+                    if AMOUNT_LBL and AMOUNT_LBL.Text ~= "" then
+                        local AMOUNT_TEXT = AMOUNT_LBL.Text
+                        if string.sub(AMOUNT_TEXT, 1, 1) == "x" then
+                            local AMOUNT_NUM = tonumber(string.sub(AMOUNT_TEXT, 2))
+                            if AMOUNT_NUM then
+                                AMOUNT = AMOUNT_NUM
+                            end
+                        end
+                    end
+ 
+                    local ITEM_VALUE = GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+                    if ITEM_VALUE then
+                        YOUR_TOTAL_VALUE = YOUR_TOTAL_VALUE + (ITEM_VALUE * AMOUNT)
+                    end
+                end
+            end
+        end
+    end
+    YOT.Text = "Value: " .. YOUR_TOTAL_VALUE
+ 
+    local THEIR_TOTAL_VALUE = 0
+    for I = 1, 4 do
+        local NEW_ITEM = TOC:WaitForChild("NewItem" .. I, 5)
+        if NEW_ITEM and NEW_ITEM.Visible then
+            local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+            local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+            local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+ 
+            if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS and CHROMA_TAG then
+                local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+                local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+                local IS_CHROMA = CHROMA_TAG.Visible
+ 
+                if ITEM_NAME_LBL and ITEM_NAME_LBL.Text ~= "" then
+                    local ITEM_NAME = ITEM_NAME_LBL.Text
+                    local AMOUNT = 1
+ 
+                    if AMOUNT_LBL and AMOUNT_LBL.Text ~= "" then
+                        local AMOUNT_TEXT = AMOUNT_LBL.Text
+                        if string.sub(AMOUNT_TEXT, 1, 1) == "x" then
+                            local AMOUNT_NUM = tonumber(string.sub(AMOUNT_TEXT, 2))
+                            if AMOUNT_NUM then
+                                AMOUNT = AMOUNT_NUM
+                            end
+                        end
+                    end
+ 
+                    local ITEM_VALUE = GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+                    if ITEM_VALUE then
+                        THEIR_TOTAL_VALUE = THEIR_TOTAL_VALUE + (ITEM_VALUE * AMOUNT)
+                    end
+                end
+            end
+        end
+    end
+    TOT.Text = "Value: " .. THEIR_TOTAL_VALUE .. ""
+ 
+    if THEIR_TOTAL_VALUE > 0 then
+        local PROFIT = THEIR_TOTAL_VALUE - YOUR_TOTAL_VALUE
+        YOT.Text = YOT.Text .. " (Profit: " .. PROFIT .. ")"
+    end
+end
+ 
+-- Run the update function initially
+UPDATE_OFFER_VALUES()
+ 
+-- Listen for changes in Your Offer
+for I = 1, 4 do
+    local NEW_ITEM = YOC:WaitForChild("NewItem" .. I, 5)
+    if NEW_ITEM then
+        NEW_ITEM:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+        local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+        local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+        local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+        if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS then
+            local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+            local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+            if ITEM_NAME_LBL then
+                ITEM_NAME_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if AMOUNT_LBL then
+                AMOUNT_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if CHROMA_TAG then
+                CHROMA_TAG:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+            end
+        end
+    end
+end
+ 
+-- Listen for changes in Their Offer
+for I = 1, 4 do
+    local NEW_ITEM = TOC:WaitForChild("NewItem" .. I, 5)
+    if NEW_ITEM then
+        NEW_ITEM:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+        local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+        local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+        local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+        if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS then
+            local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+            local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+            if ITEM_NAME_LBL then
+                ITEM_NAME_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if AMOUNT_LBL then
+                AMOUNT_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if CHROMA_TAG then
+                CHROMA_TAG:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+            end
+        end
+    end
+end
+ 
+local ancientValues = {
+	["Corrupt"] = 900,
+    ["Gingerscope"] = 9300,
+    ["Traveler's Axe"] = 6200,
+    ["Harvester"] = 725,
+    ["Celestial"] = 625,
+    ["Icepiercer"] = 625,
+    ["Vampire's Axe"] = 425,
+    ["Icebreaker"] = 125,
+    ["Swirly Axe"] = 80,
+    ["Batwing"] = 65,
+    ["Elderwood Scythe"] = 65,
+    ["Hallowscythe"] = 48,
+    ["Logchopper"] = 25,
+    ["Icewing"] = 5,
+	["Traveler's Gun"] = 3600,
+	["Evergun"] = 2450,
+	["Turkey"] = 1650,
+	["Evergreen"] = 975,
+	["Blossom"] = 790,
+	["Sakura"] = 780,
+	["Vampire's Gun"] = 475,
+	["Constellation"] = 475,
+	["Bauble"] = 425,
+	["Darkshot"] = 490,
+	["Darksword"] = 465,
+    ["Bloom"] = 375,
+    ["Flora"] = 375,
+	["Bat"] = 275,
+	["Rainbow Gun"] = 225,
+	["Rainbow"] = 220,
+	["Candy"] = 190,
+	["Heartblade"] = 130,
+	["Flowerwood Gun"] = 140,
+	["Ocean"] = 140,
+	["Soul"] = 140,
+	["Spirit"] = 140,
+	["Flowerwood"] = 135,
+	["Waves"] = 135,
+	["Borealis"] = 110,
+	["Sugar"] = 100,
+	["Australis"] = 105,
+	["Luger"] = 70,
+	["Red Luger"] = 60,
+	["Swirly Gun"] = 60,
+	["Iceblaster"] = 65,
+	["Candleflame"] = 65,
+	["Elderwood Blade"] = 65,
+	["Makeshift"] = 65,
+	["Watergun"] = 70,
+	["Pearl"] = 63,
+	["Pearlshine"] = 63,
+	["Darkbringer"] = 60,
+	["Elderwood Revolver"] = 60,
+	["Phantom"] = 60,
+	["Spectre"] = 60,
+	["Lightbringer"] = 55,
+	["Swirly Blade"] = 45,
+	["Green Luger"] = 40,
+	["Hallowgun"] = 27,
+	["Laser"] = 32,
+	["Icebeam"] = 28,
+	["Iceflake"] = 28,
+	["Plasmabeam"] = 28,
+	["Plasmablade"] = 28,
+	["Amerilaser"] = 28,
+	["Blaster"] = 25,
+	["Nightblade"] = 25,
+	["Old Glory"] = 25,
+	["Nebula"] = 23,
+	["Shark"] = 27,
+	["Virtual"] = 23,
+	["Cookiecane"] = 23,
+	["Gingermint"] = 23,
+	["Gemstone"] = 25,
+	["Clockwork"] = 22,
+	["Eternalcane"] = 23,
+	["Ginger Luger"] = 23,
+	["Lugercane"] = 23,
+	["Pixel"] = 23,
+	["Slasher"] = 23,
+	["Gingerblade"] = 22,
+	["Heat"] = 20,
+	["BattleAxe II"] = 18,
+	["Deathshard"] = 20,
+	["Minty"] = 20,
+	["Tides"] = 15,
+	["Fang"] = 18,
+	["Jinglegun"] = 17,
+	["Spider"] = 17,
+	["Chill"] = 17,
+	["Bioblade"] = 15,
+	["Vampire's Edge"] = 15,
+	["Pumpking"] = 12,
+	["Frostsaber"] = 15,
+	["BattleAxe"] = 13,
+	["Flames"] = 10,
+	["Hallow's Edge"] = 10,
+	["Ice Dragon"] = 10,
+	["Ice Shard"] = 12,
+	["Winter's Edge"] = 12,
+	["Xmas"] = 12,
+	["Hallow's Blade"] = 10,
+	["Handsaw"] = 10,
+	["Eternal"] = 8,
+	["Eternal II"] = 8,
+	["Eternal III"] = 10,
+	["Eternal IV"] = 10,
+	["Boneblade"] = 7,
+	["Ghostblade"] = 7,
+	["Eggblade"] = 7,
+	["Frostbite"] = 7,
+	["Prismatic"] = 7,
+	["Saw"] = 7,
+	["Snowflake"] = 7,
+	["Peppermint"] = 5,
+	["Cookieblade"] = 4,
+	["Blue Seer"] = 3,
+	["Purple Seer"] = 3,
+	["Red Seer"] = 3,
+	["Seer"] = 3,
+	["Orange Seer"] = 2,
+	["Yellow Seer"] = 2,
+	["Chroma Traveler's Gun"] = 140000,
+    ["Chroma Evergun"] = 55000,
+    ["Chroma Evergreen"] = 34000,
+    ["Chroma Vampire's Gun"] = 15500,
+    ["Chroma Bauble"] = 11000,
+    ["Chroma Constellation"] = 10000,
+    ["Chroma Watergun"] = 2500,
+    ["Chroma Darkbringer"] = 110,
+    ["Chroma Lightbringer"] = 105,
+    ["Chroma Luger"] = 95,
+    ["Chroma Laser"] = 75,
+    ["Chroma Candleflame"] = 65,
+    ["Chroma Elderwood Blade"] = 65,
+    ["Chroma Swirly Gun"] = 65,
+    ["Chroma Cookiecane"] = 64,
+    ["Chroma Deathshard"] = 60,
+    ["Chroma Heat"] = 65,
+    ["Chroma Shark"] = 65,
+    ["Chroma Slasher"] = 60,
+    ["Chroma Tides"] = 60,
+    ["Chroma Fang"] = 60,
+    ["Chroma Gemstone"] = 55,
+    ["Chroma Gingerblade"] = 50,
+    ["Chroma Seer"] = 55,
+    ["Chroma Boneblade"] = 40,
+    ["Chroma Saw"] = 50,
+	["Ghost"] = 10,
+    ["America"] = 8,
+    ["Blood"] = 8,
+    ["Phaser"] = 7,
+    ["Shadow"] = 6,
+    ["Prince"] = 5,
+    ["Cowboy"] = 4,
+    ["Golden"] = 4,
+    ["Splitter"] = 3,
+    ["JD"] = 65,
+    ["Latte Gun"] = 120,
+    ["Latte Knife"] = 120,
+    ["Cotton Candy"] = 65,
+    ["Beach"] = 30,
+    ["Cavern Knife"] = 25,
+    ["Witched"] = 20,
+    ["Skulls"] = 10,
+    ["Icedriller"] = 8,
+    ["Spectral Knife"] = 8,
+    ["Vampire Gun"] = 8,
+    ["Green Elite"] = 7,
+    ["Santa's Spirit"] = 7,
+    ["Aurora Gun"] = 6,
+    ["Ginger Gun"] = 6,
+    ["Blue Elite"] = 6,
+    ["Ghost Knife"] = 6,
+    ["Traveler Gun"] = 5,
+    ["Broken"] = 5,
+    ["Santa's Magic"] = 5,
+    ["Red Scratch"] = 4,
+    ["Red Fire"] = 3,
+    ["Arctic Gun"] = 2,
+    ["Icecracker"] = 2,
+    ["Nightsky"] = 2,
+    ["Blue Scratch"] = 2,
+    ["Ghost Gun"] = 2,
+    ["Rupture"] = 1,
+    ["Tree Gun"] = 1,
+    ["Tree Knife"] = 1,
+    ["Web"] = 1,
+    ["Chromatic Knife"] = 1,
+    ["Cursed Knife"] = 1,
+    ["Frostfade Knife"] = 1,
+    ["Vampire Knife"] = 1,
+    ["Cavern Gun"] = 1,
+    ["Cane"] = 575,
+    ["Silent Night"] = 60,
+    ["Aurora"] = 28,
+    ["Icicles"] = 25,
+    ["Dungeon"] = 20,
+    ["Candy Swirl"] = 20,
+    ["Toxic"] = 20,
+    ["Vampire"] = 20,
+    ["Snakebite"] = 17,
+    ["Monster"] = 17,
+    ["Magma"] = 10,
+    ["Bats"] = 7,
+    ["Green Marble"] = 7,
+    ["Jack"] = 4,
+    ["Orange Marble"] = 3,
+    ["Floral"] = 2,
+    ["Starry"] = 2,
+    ["Darkknife"] = 1,
+    ["Gingerbread"] = 1,
+    ["Mummy"] = 1,
+	["Zombified Knife"] = 55,
+    ["Bones"] = 50,
+    ["Gingerbread Knife"] = 50,
+    ["Brains"] = 40,
+    ["Sweater Knife"] = 35,
+    ["Branches"] = 25,
+    ["Frozen Gun"] = 22,
+    ["Lights Gun"] = 20,
+    ["Mummy Gun"] = 20,
+    ["Zombie Gun"] = 20,
+    ["Potion Knife"] = 17,
+    ["Zombified Gun"] = 15,
+    ["Potion"] = 6,
+    ["Void"] = 8,
+    ["Frozen Knife"] = 5,
+    ["Gingerbread Gun"] = 5,
+    ["Zombie Knife"] = 5,
+    ["Lights Knife"] = 4,
+    ["Mummy Knife"] = 4,
+    ["Moons"] = 4,
+    ["Webs"] = 3,
+    ["Holly Gun"] = 3,
+    ["Snowflake"] = 3,
+    ["Wolf"] = 3,
+    ["Vampire"] = 3,
+    ["Nutcracker"] = 1,
+    ["Snowman Gun"] = 1,
+    ["Snowman Knife"] = 1,
+    ["Snowy"] = 1,
+    ["Wrapped Gun"] = 1,
+    ["Wrapped Knife"] = 1,
+    ["Gifted"] = 1,
+    ["Cane"] = 575,
+    ["Silent Night"] = 60,
+    ["Aurora"] = 28,
+    ["Icicles"] = 25,
+    ["Dungeon"] = 20,
+    ["Candy Swirl"] = 20,
+    ["Toxic"] = 20,
+    ["Snakebite"] = 17,
+    ["Monster"] = 17,
+    ["Magma"] = 10,
+    ["Bats"] = 7,
+    ["Green Marble"] = 7,
+    ["Jack"] = 4,
+    ["Orange Marble"] = 3,
+    ["Floral"] = 2,
+    ["Starry"] = 2,
+    ["Darkknife"] = 1,
+    ["Mummy"] = 1,
+    ["Glitch2"] = 60,
+    ["Glitch1"] = 60,
+    ["Bats"] = 170,
+    ["Gifts"] = 140,
+    ["Pine"] = 140,
+    ["Sparkle9"] = 35,
+    ["Sparkle8"] = 25,
+    ["Sparkle10"] = 25,
+    ["Ghoulish"] = 25,
+    ["Skool"] = 20,
+    ["Sparkle7"] = 20,
+    ["RIP"] = 18,
+    ["Tailslide"] = 17,
+    ["Coal"] = 15,
+    ["Ollie"] = 15,
+    ["Sidewinder"] = 15,
+    ["Sparkle5"] = 13,
+    ["Elf"] = 13,
+    ["Grave"] = 12,
+    ["CandyCorn"] = 10,
+    ["Sparkle4"] = 8,
+    ["Asteroid"] = 8,
+    ["Euro"] = 8,
+    ["Slime"] = 7,
+    ["Grind"] = 6,
+    ["Haunted"] = 5,
+    ["Combat II"] = 5,
+    ["Prism"] = 4,
+    ["Zombie"] = 4,
+    ["Snowman"] = 3,
+    ["Wrapped"] = 3,
+    ["Bones"] = 3,
+    ["Brains"] = 3,
+    ["Neon"] = 3,
+    ["Ecto"] = 3,
+    ["Witch"] = 3,
+    ["Indy"] = 3,
+    ["Hearts"] = 2,
+    ["Tulip"] = 2,
+    ["Goo"] = 2,
+    ["Patrick"] = 2,
+    ["Reptile"] = 2,
+    ["Bunny"] = 1,
+    ["Choco"] = 1,
+    ["Roses"] = 1,
+    ["Alex"] = 1,
+    ["Corl"] = 1,
+    ["Denis"] = 1,
+    ["Ornament"] = 1,
+    ["Ornament1"] = 1,
+    ["Ornament2"] = 1,
+    ["Passion"] = 1,
+    ["Sketchy"] = 1,
+    ["Sub"] = 1,
+    ["Sweetheart"] = 1,
+    ["Valentine"] = 1,
+    ["2015"] = 1,
+    ["Santa"] = 1,
+    ["Infected"] = 1,
+    ["TNL"] = 1,
+	["Zombie Dog"] = 200,
+    ["Elf"] = 120,
+    ["Blue Pumpkin"] = 75,
+    ["Black Cat"] = 60,
+    ["Dogey"] = 60,
+    ["Red Pumpkin"] = 55,
+    ["Green Pumpkin"] = 45,
+    ["Santa"] = 35,
+    ["Jetstream"] = 35,
+    ["Purple Pumpkin"] = 30,
+    ["Vampire Bat"] = 30,
+    ["Rudolph"] = 25,
+    ["Red Pumpkin"] = 25, -- Duplicate name, kept the first one
+    ["Eyeball"] = 25,
+    ["Overseer Eye"] = 25,
+    ["Nobledragon"] = 25,
+    ["Pumpkin"] = 20,
+    ["Piggy"] = 20,
+    ["Green Pumpkin"] = 20, -- Duplicate name, kept the first one
+    ["Reindeer"] = 20,
+    ["Fairy"] = 20,
+    ["Seahorsey"] = 18,
+    ["Chilly"] = 17,
+    ["Pengy"] = 17,
+    ["Tankie"] = 15,
+    ["<3"] = 12,
+    ["Mechbug"] = 8,
+    ["UFO"] = 7,
+    ["Red Pumpkin"] = 5, -- Duplicate name, kept the first one
+    ["Deathspeaker"] = 5,
+    ["Blue Pumpkin"] = 4, -- Duplicate name, kept the first one
+    ["Phoenix"] = 4,
+    ["Frostbird"] = 3,
+    ["Green Pumpkin"] = 2, -- Duplicate name, kept the first one
+    ["Electro"] = 2,
+    ["Sammy"] = 2,
+    ["Steambird"] = 2,
+    ["Badger"] = 1,
+    ["Ice Phoenix"] = 1,
+    ["Skelly"] = 1,
+    ["Traveller"] = 1,
+    ["Fire Bat"] = 1,
+    ["Fire Cat"] = 1,
+    ["Fire Bear"] = 1,
+    ["Fire Bunny"] = 1,
+    ["Fire Dog"] = 1,
+    ["Fire Fox"] = 1,
+    ["Fire Pig"] = 1,
+    ["Ghosty"] = 1,
+	["Chroma Fire Bunny"] = 20,
+    ["Chroma Fire Cat"] = 20,
+    ["Chroma Fire Dog"] = 18,
+    ["Chroma Fire Fox"] = 17,
+    ["Chroma Fire Bat"] = 15,
+    ["Chroma Fire Pig"] = 13,
+    ["Chroma Fire Bear"] = 12,
+}
+ 
+local LP = game:GetService("Players").LocalPlayer
+local PG = LP:WaitForChild("PlayerGui", 5)
+if not PG then return end
+ 
+local TG_PHONE = PG:WaitForChild("TradeGUI_Phone", 5)
+if not TG_PHONE then return end
+ 
+local CONT = TG_PHONE:WaitForChild("Container", 5)
+if not CONT then return end
+ 
+local TR = CONT:WaitForChild("Trade", 5)
+if not TR then return end
+ 
+local YO = TR:WaitForChild("YourOffer", 5)
+if not YO then return end
+ 
+local YOC = YO:WaitForChild("Container", 5)
+if not YOC then return end
+ 
+local YOT = YO:WaitForChild("Title", 5)
+if not YOT then return end
+ 
+local TO = TR:WaitForChild("TheirOffer", 5)
+if not TO then return end
+ 
+local TOC = TO:WaitForChild("Container", 5)
+if not TOC then return end
+ 
+local TOT = TO:WaitForChild("Title", 5)
+if not TOT then return end
+ 
+local function GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+    if IS_CHROMA then
+        local CHROMA_NAME = "Chroma " .. ITEM_NAME
+        if ancientValues and ancientValues[CHROMA_NAME] then
+            return ancientValues[CHROMA_NAME]
+        end
+    end
+    if ancientValues then
+        return ancientValues[ITEM_NAME]
+    end
+    return nil -- Or some other default value if ancientValues is not found
+end
+ 
+local function UPDATE_OFFER_VALUES()
+    local YOUR_TOTAL_VALUE = 0
+    for I = 1, 4 do
+        local NEW_ITEM = YOC:WaitForChild("NewItem" .. I, 5)
+        if NEW_ITEM and NEW_ITEM.Visible then
+            local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+            local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+            local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+ 
+            if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS and CHROMA_TAG then
+                local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+                local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+                local IS_CHROMA = CHROMA_TAG.Visible
+ 
+                if ITEM_NAME_LBL and ITEM_NAME_LBL.Text ~= "" then
+                    local ITEM_NAME = ITEM_NAME_LBL.Text
+                    local AMOUNT = 1
+ 
+                    if AMOUNT_LBL and AMOUNT_LBL.Text ~= "" then
+                        local AMOUNT_TEXT = AMOUNT_LBL.Text
+                        if string.sub(AMOUNT_TEXT, 1, 1) == "x" then
+                            local AMOUNT_NUM = tonumber(string.sub(AMOUNT_TEXT, 2))
+                            if AMOUNT_NUM then
+                                AMOUNT = AMOUNT_NUM
+                            end
+                        end
+                    end
+ 
+                    local ITEM_VALUE = GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+                    if ITEM_VALUE then
+                        YOUR_TOTAL_VALUE = YOUR_TOTAL_VALUE + (ITEM_VALUE * AMOUNT)
+                    end
+                end
+            end
+        end
+    end
+    YOT.Text = "Value: " .. YOUR_TOTAL_VALUE
+ 
+    local THEIR_TOTAL_VALUE = 0
+    for I = 1, 4 do
+        local NEW_ITEM = TOC:WaitForChild("NewItem" .. I, 5)
+        if NEW_ITEM and NEW_ITEM.Visible then
+            local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+            local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+            local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+ 
+            if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS and CHROMA_TAG then
+                local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+                local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+                local IS_CHROMA = CHROMA_TAG.Visible
+ 
+                if ITEM_NAME_LBL and ITEM_NAME_LBL.Text ~= "" then
+                    local ITEM_NAME = ITEM_NAME_LBL.Text
+                    local AMOUNT = 1
+ 
+                    if AMOUNT_LBL and AMOUNT_LBL.Text ~= "" then
+                        local AMOUNT_TEXT = AMOUNT_LBL.Text
+                        if string.sub(AMOUNT_TEXT, 1, 1) == "x" then
+                            local AMOUNT_NUM = tonumber(string.sub(AMOUNT_TEXT, 2))
+                            if AMOUNT_NUM then
+                                AMOUNT = AMOUNT_NUM
+                            end
+                        end
+                    end
+ 
+                    local ITEM_VALUE = GET_ITEM_VALUE(ITEM_NAME, IS_CHROMA)
+                    if ITEM_VALUE then
+                        THEIR_TOTAL_VALUE = THEIR_TOTAL_VALUE + (ITEM_VALUE * AMOUNT)
+                    end
+                end
+            end
+        end
+    end
+    TOT.Text = "Value: " .. THEIR_TOTAL_VALUE .. ""
+ 
+    if THEIR_TOTAL_VALUE > 0 then
+        local PROFIT = THEIR_TOTAL_VALUE - YOUR_TOTAL_VALUE
+        YOT.Text = YOT.Text .. " (Profit: " .. PROFIT .. ")"
+    end
+end
+ 
+-- Run the update function initially
+UPDATE_OFFER_VALUES()
+ 
+-- Listen for changes in Your Offer
+for I = 1, 4 do
+    local NEW_ITEM = YOC:WaitForChild("NewItem" .. I, 5)
+    if NEW_ITEM then
+        NEW_ITEM:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+        local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+        local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+        local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+        if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS then
+            local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+            local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+            if ITEM_NAME_LBL then
+                ITEM_NAME_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if AMOUNT_LBL then
+                AMOUNT_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if CHROMA_TAG then
+                CHROMA_TAG:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+            end
+        end
+    end
+end
+ 
+-- Listen for changes in Their Offer
+for I = 1, 4 do
+    local NEW_ITEM = TOC:WaitForChild("NewItem" .. I, 5)
+    if NEW_ITEM then
+        NEW_ITEM:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+        local ITEM_NAME_OBJ = NEW_ITEM:WaitForChild("ItemName", 5)
+        local AMOUNT_CONT = NEW_ITEM:WaitForChild("Container", 5)
+        local TAGS = NEW_ITEM:WaitForChild("Tags", 5)
+        if ITEM_NAME_OBJ and AMOUNT_CONT and TAGS then
+            local ITEM_NAME_LBL = ITEM_NAME_OBJ:WaitForChild("Label", 5)
+            local AMOUNT_LBL = AMOUNT_CONT:WaitForChild("Amount", 5)
+            local CHROMA_TAG = TAGS:WaitForChild("Chroma", 5)
+            if ITEM_NAME_LBL then
+                ITEM_NAME_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if AMOUNT_LBL then
+                AMOUNT_LBL:GetPropertyChangedSignal("Text"):Connect(UPDATE_OFFER_VALUES)
+            end
+            if CHROMA_TAG then
+                CHROMA_TAG:GetPropertyChangedSignal("Visible"):Connect(UPDATE_OFFER_VALUES)
+            end
+        end
+    end
+end
+
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+
+-- Item List with Custom Name Mapping
+local items = {
+    {original = "Harvester", custom = "Harvester"},
+    {original = "Gingerscope", custom = "Gingerscope"},
+    {original = "Bauble", custom = "Bauble"},
+    {original = "Icepiercer", custom = " Icepiercer"},
+    {original = "TreeGun2023", custom = "Evergun"},
+    {original = "TreeKnife2023", custom = "Evergreen"},
+    {original = "TreeGun2023Chroma", custom = "Chroma Evergun"},
+    {original = "TreeKnife2023Chroma", custom = "Chroma Evergreen"},
+    {original = "Bloom", custom = "Bloom"},
+    {original = "Flora", custom = "Flora"},
+    {original = "TravelerAxe", custom = "Traveler Axe"},
+    {original = "TravelerGun", custom = "Traveler Gun"},
+    {original = "TravelerAxeChroma", custom = "Chroma Traveler Axe"},
+    {original = "TravelerGunChroma", custom = "Chroma Traveler Gun"},
+    {original = "Celestial", custom = "Celestial"},
+    {original = "Constellation", custom = "Constellation"},
+    {original = "ConstellationChroma", custom = "Chroma Constellation"},
+    {original = "BaubleChroma", custom = "Chroma Bauble"},
+    {original = "Candy", custom = "Candy"},
+    {original = "Sugar", custom = "Sugar"},
+    {original = "Darksword", custom = "Darksword"},
+    {original = "Darkshot", custom = "Darkshot"},
+    {original = "VampireAxe", custom = "Vampire Axe"},
+    {original = "VampireGun", custom = "VampirecGun"},
+    {original = "SwirlyAxe", custom = "Swirly Axe"},
+    {original = "SwirlyGun", custom = "Swirly Gun"},
+    {original = "Flowerwood", custom = "Flowerwood"},
+    {original = "FlowerwoodGun", custom = "Flowerwood Gun"},
+    {original = "VampireGunChroma", custom = "Chroma Vampire Gun"},
+    {original = "WatergunChroma", custom = "Chroma Watergun"},
+    {original = "Turkey2023", custom = "Turkey"},
+    {original = "Sakura_K", custom = "Sakura"},
+    {original = "Blossom_G", custom = "Blossom"},
+    {original = "ZombieBat", custom = "Bat"},
+    {original = "Makeshift", custom = "Makeshift"},
+    {original = "Sorry", custom = "Corrupt"}
+}
+
+-- Function to get original name from custom name
+local function getOriginalName(customName)
+    for _, item in ipairs(items) do
+        if item.custom == customName then
+            return item.original
+        end
+    end
+    return customName
+end
+
+local function getCustomName(originalName)
+    for _, item in ipairs(items) do
+        if item.original == originalName then
+            return item.custom
+        end
+    end
+    return originalName
+end
+
+-- Theme (Ignite Hub)
+local COLORS = {
+    bg = Color3.fromRGB(26, 26, 28),
+    panel = Color3.fromRGB(18, 18, 20),
+    field = Color3.fromRGB(14, 14, 16),
+    border = Color3.fromRGB(72, 72, 78),
+    borderActive = Color3.fromRGB(100, 100, 108),
+    text = Color3.fromRGB(245, 245, 245),
+    textDim = Color3.fromRGB(180, 180, 188),
+    accent = Color3.fromRGB(70, 140, 255),
+    closeBorder = Color3.fromRGB(140, 45, 50),
+    closeBg = Color3.fromRGB(32, 18, 20),
+    navActive = Color3.fromRGB(38, 38, 42),
+}
+
+local selectedWeapon = items[1] and items[1].custom or "Harvester"
+local spawnAmount = 1
+local dropdownOpen = false
+
+-- ESP (from Ignite Hub)
+local ESP_COLORS = {
+    Murderer = Color3.fromRGB(239, 68, 68),
+    Sheriff = Color3.fromRGB(16, 185, 129),
+    Innocent = Color3.fromRGB(70, 140, 255),
+}
+
+local currentESPOptions = { "Esp All" }
+local espModeList = { "Esp All", "Esp Sheriff", "Esp Murder", "Esp Sheriff / Murder" }
+local espModeIndex = 1
+local highlightEnabled = true
+local lineESPEnabled = false
+local tracers = {}
+
+local autoFarmCoins = false
+local autoFarmCandy = false
+local visitedPositions = {}
+local flySpeed = 23
+local collected = 0
+local isFlinging = false
+local farmPausedForEndRound = false
+local flingActive = false
+local oldFlingPos = nil
+local savedFPDH = workspace.FallenPartsDestroyHeight
+local coinFarmToggleRef = nil
+local candyFarmToggleRef = nil
+local character = player.Character or player.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local function getRole(targetPlayer)
+    local char = targetPlayer.Character
+    if not char then return nil end
+    local backpack = targetPlayer:FindFirstChild("Backpack")
+    if char:FindFirstChild("Knife") or (backpack and backpack:FindFirstChild("Knife")) then return "Murderer" end
+    if char:FindFirstChild("Gun") or (backpack and backpack:FindFirstChild("Gun")) then return "Sheriff" end
+    return "Innocent"
+end
+
+local function isPlayerTargeted(targetPlayer, selectedOptions)
+    local role = getRole(targetPlayer)
+    if not role then return false end
+    if table.find(selectedOptions, "Esp All") then return true end
+    if table.find(selectedOptions, "Esp Murder") and role == "Murderer" then return true end
+    if table.find(selectedOptions, "Esp Sheriff") and role == "Sheriff" then return true end
+    if table.find(selectedOptions, "Esp Sheriff / Murder") and (role == "Sheriff" or role == "Murderer") then return true end
+    return false
+end
+
+local function createHighlight(char, color)
+    local highlight = char:FindFirstChild("RoleHighlight")
+    if not highlight then
+        highlight = Instance.new("Highlight")
+        highlight.Name = "RoleHighlight"
+        highlight.FillTransparency = 0.5
+        highlight.OutlineTransparency = 1
+        highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+        highlight.Adornee = char
+        highlight.Parent = char
+    end
+    highlight.FillColor = color
+end
+
+local function removeHighlight(char)
+    local highlight = char:FindFirstChild("RoleHighlight")
+    if highlight then highlight:Destroy() end
+end
+
+local function createTracer(targetPlayer, color)
+    local line = Drawing.new("Line")
+    line.Thickness = 2
+    line.Color = color or Color3.new(1, 1, 1)
+    line.Transparency = 1
+    tracers[targetPlayer] = line
+end
+
+local function removeTracer(targetPlayer)
+    if tracers[targetPlayer] then
+        tracers[targetPlayer]:Remove()
+        tracers[targetPlayer] = nil
+    end
+end
+
+local function updateESP()
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= player and plr.Character then
+            local role = getRole(plr)
+            local target = isPlayerTargeted(plr, currentESPOptions)
+            local color = role == "Murderer" and ESP_COLORS.Murderer
+                or role == "Sheriff" and ESP_COLORS.Sheriff
+                or ESP_COLORS.Innocent
+
+            if highlightEnabled then
+                if target then
+                    createHighlight(plr.Character, color)
+                else
+                    removeHighlight(plr.Character)
+                end
+            else
+                removeHighlight(plr.Character)
+            end
+
+            if lineESPEnabled and target then
+                if not tracers[plr] then
+                    createTracer(plr, color)
+                else
+                    tracers[plr].Color = color
+                end
+            else
+                removeTracer(plr)
+            end
+        end
+    end
+end
+
+local function flyTo(pos, speed)
+    if not rootPart then return end
+    local distance = (pos - rootPart.Position).Magnitude
+    local duration = distance / speed
+    local tween = TweenService:Create(rootPart, TweenInfo.new(duration, Enum.EasingStyle.Linear), {CFrame = CFrame.new(pos)})
+    tween:Play()
+    tween.Completed:Wait()
+end
+
+local function findCoinContainer()
+    for _, v in Workspace:GetChildren() do
+        if v:FindFirstChild("CoinContainer") and v:IsA("Model") then
+            return v:FindFirstChild("CoinContainer")
+        end
+    end
+    return nil
+end
+
+task.spawn(function()
+    while true do
+        if (autoFarmCoins or autoFarmCandy) and not farmPausedForEndRound and not isFlinging then
+            character = player.Character or player.CharacterAdded:Wait()
+            rootPart = character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                local closest, shortest = nil, math.huge
+                if autoFarmCandy then
+                    local coinContainer = findCoinContainer()
+                    if coinContainer then
+                        for _, coin in pairs(coinContainer:GetChildren()) do
+                            if coin:GetAttribute("CoinID") == "Candy" and coin:FindFirstChild("TouchInterest") then
+                                local dist = (coin.Position - rootPart.Position).Magnitude
+                                if dist < shortest and dist < 250 and not visitedPositions[coin] then
+                                    closest = coin
+                                    shortest = dist
+                                end
+                            end
+                        end
+                    else
+                        for _, obj in ipairs(Workspace:GetDescendants()) do
+                            if obj:IsA("BasePart") and obj.Name == "candy" then
+                                local dist = (obj.Position - rootPart.Position).Magnitude
+                                if dist < shortest and dist < 250 and not visitedPositions[obj] then
+                                    closest = obj
+                                    shortest = dist
+                                end
+                            end
+                        end
+                    end
+                elseif autoFarmCoins then
+                    for _, obj in ipairs(Workspace:GetDescendants()) do
+                        if obj:IsA("BasePart") and obj.Name == "Coin_Server" then
+                            local dist = (obj.Position - rootPart.Position).Magnitude
+                            if dist < shortest and dist < 250 and not visitedPositions[obj] then
+                                closest = obj
+                                shortest = dist
+                            end
+                        end
+                    end
+                end
+                if closest and closest.Parent and closest:IsDescendantOf(Workspace) then
+                    flyTo(closest.Position, flySpeed)
+                    if closest and closest.Parent and closest:IsDescendantOf(Workspace) then
+                        visitedPositions[closest] = true
+                        collected += 1
+                    end
+                end
+            end
+        end
+        task.wait(0.1)
+    end
+end)
+
+RunService.Stepped:Connect(function()
+    if not (autoFarmCoins or autoFarmCandy) or farmPausedForEndRound or isFlinging then return end
+    if character and character.Parent then
+        for _, v in ipairs(character:GetDescendants()) do
+            if v:IsA("BasePart") then
+                v.CanCollide = false
+            end
+        end
+    end
+end)
+
+player.CharacterAdded:Connect(function(char)
+    character = char
+    rootPart = char:WaitForChild("HumanoidRootPart")
+    visitedPositions = {}
+end)
+
+RunService.RenderStepped:Connect(function()
+    if not lineESPEnabled then return end
+    for plr, line in pairs(tracers) do
+        if plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            local hrp = plr.Character.HumanoidRootPart
+            local screenPos, onScreen = Workspace.CurrentCamera:WorldToViewportPoint(hrp.Position)
+            local rootGuiSize = Workspace.CurrentCamera.ViewportSize
+            if onScreen then
+                line.From = Vector2.new(rootGuiSize.X / 2, rootGuiSize.Y)
+                line.To = Vector2.new(screenPos.X, screenPos.Y)
+                line.Visible = true
+            else
+                line.Visible = false
+            end
+        else
+            line.Visible = false
+        end
+    end
+end)
+
+local function monitorPlayer(plr)
+    plr.CharacterAdded:Connect(function()
+        local backpack = plr:WaitForChild("Backpack")
+        backpack.ChildAdded:Connect(updateESP)
+        backpack.ChildRemoved:Connect(updateESP)
+        updateESP()
+    end)
+    if plr.Character then
+        local backpack = plr:FindFirstChild("Backpack")
+        if backpack then
+            backpack.ChildAdded:Connect(updateESP)
+            backpack.ChildRemoved:Connect(updateESP)
+        end
+    end
+end
+
+for _, plr in ipairs(Players:GetPlayers()) do monitorPlayer(plr) end
+Players.PlayerAdded:Connect(monitorPlayer)
+Players.PlayerRemoving:Connect(function(plr)
+    if plr == player then
+        for _, line in pairs(tracers) do
+            if line then line:Remove() end
+        end
+        tracers = {}
+    else
+        removeTracer(plr)
+        if plr.Character then removeHighlight(plr.Character) end
+    end
+end)
+
+updateESP()
+
+local function getMurdererPlayer()
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= player and getRole(plr) == "Murderer" then
+            return plr
+        end
+    end
+    return nil
+end
+
+local function pauseFarmForEndRound()
+    farmPausedForEndRound = true
+end
+
+local function resumeFarmAfterEndRound()
+    farmPausedForEndRound = false
+    visitedPositions = {}
+end
+
+local function resetCharacter()
+    pcall(function()
+        local hum = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+        if hum and hum.Health > 0 then
+            hum.Health = 0
+        end
+    end)
+end
+
+local function resetAndWaitForCharacter()
+    local oldChar = player.Character
+    resetCharacter()
+    task.wait(0.15)
+    if player.Character == oldChar and oldChar then
+        local hum = oldChar:FindFirstChildOfClass("Humanoid")
+        if hum and hum.Health > 0 then
+            hum.Health = 0
+        end
+    end
+    local char = player.Character
+    if not char or char == oldChar then
+        char = player.CharacterAdded:Wait()
+    end
+    return char, char:WaitForChild("HumanoidRootPart")
+end
+
+local function waitForMurderer(timeout)
+    timeout = timeout or 12
+    local deadline = tick() + timeout
+    while tick() < deadline do
+        local murderer = getMurdererPlayer()
+        if murderer and murderer.Character then
+            local hum = murderer.Character:FindFirstChildOfClass("Humanoid")
+            if hum and hum.RootPart then
+                return murderer
+            end
+        end
+        task.wait(0.2)
+    end
+    return getMurdererPlayer()
+end
+
+-- SkidFling (KILASIK / zqyDSUWX method)
+local function skidFling(targetPlayer)
+    if not targetPlayer then return false end
+
+    local Character = player.Character
+    local Humanoid = Character and Character:FindFirstChildOfClass("Humanoid")
+    local RootPart = Humanoid and Humanoid.RootPart
+    local TCharacter = targetPlayer.Character
+    if not TCharacter or not Character or not Humanoid or not RootPart then return false end
+
+    local THumanoid = TCharacter:FindFirstChildOfClass("Humanoid")
+    local TRootPart = THumanoid and THumanoid.RootPart
+    local THead = TCharacter:FindFirstChild("Head")
+    local Accessory = TCharacter:FindFirstChildOfClass("Accessory")
+    local Handle = Accessory and Accessory:FindFirstChild("Handle")
+
+    if not TCharacter:FindFirstChildWhichIsA("BasePart") then return false end
+    if not TRootPart and not THead and not Handle then return false end
+
+    flingActive = true
+
+    if RootPart.Velocity.Magnitude < 50 then
+        oldFlingPos = RootPart.CFrame
+    end
+
+    local camera = Workspace.CurrentCamera
+    if THead then
+        camera.CameraSubject = THead
+    elseif Handle then
+        camera.CameraSubject = Handle
+    elseif THumanoid then
+        camera.CameraSubject = THumanoid
+    end
+
+    local function FPos(BasePart, Pos, Ang)
+        RootPart.CFrame = CFrame.new(BasePart.Position) * Pos * Ang
+        pcall(function()
+            Character:SetPrimaryPartCFrame(CFrame.new(BasePart.Position) * Pos * Ang)
+        end)
+        RootPart.Velocity = Vector3.new(9e7, 9e7 * 10, 9e7)
+        RootPart.RotVelocity = Vector3.new(9e8, 9e8, 9e8)
+    end
+
+    local function SFBasePart(BasePart)
+        if not BasePart or not BasePart.Parent then return end
+        local TimeToWait = 3
+        local Time = tick()
+        local Angle = 0
+        repeat
+            if RootPart and THumanoid and flingActive then
+                if BasePart.Velocity.Magnitude < 50 then
+                    Angle = Angle + 100
+                    FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection * BasePart.Velocity.Magnitude / 1.25, CFrame.Angles(math.rad(Angle), 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, 1.5, 0) + THumanoid.MoveDirection, CFrame.Angles(math.rad(Angle), 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, -1.5, 0) + THumanoid.MoveDirection, CFrame.Angles(math.rad(Angle), 0, 0))
+                    task.wait()
+                else
+                    FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, -1.5, -THumanoid.WalkSpeed), CFrame.Angles(0, 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, 1.5, THumanoid.WalkSpeed), CFrame.Angles(math.rad(90), 0, 0))
+                    task.wait()
+                    FPos(BasePart, CFrame.new(0, -1.5, 0), CFrame.Angles(math.rad(90), 0, 0))
+                    task.wait()
+                end
+            end
+        until Time + TimeToWait < tick() or not flingActive
+    end
+
+    pcall(function()
+        workspace.FallenPartsDestroyHeight = 0 / 0
+    end)
+
+    local BV = Instance.new("BodyVelocity")
+    BV.Parent = RootPart
+    BV.Velocity = Vector3.new(0, 0, 0)
+    BV.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
+
+    TCharacter = targetPlayer.Character
+    THumanoid = TCharacter and TCharacter:FindFirstChildOfClass("Humanoid")
+    TRootPart = THumanoid and THumanoid.RootPart
+    THead = TCharacter and TCharacter:FindFirstChild("Head")
+
+    if TRootPart and TRootPart.Parent then
+        SFBasePart(TRootPart)
+    elseif THead and THead.Parent then
+        SFBasePart(THead)
+    elseif Handle and Handle.Parent then
+        SFBasePart(Handle)
+    else
+        flingActive = false
+        return false
+    end
+
+    BV:Destroy()
+    Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
+    camera.CameraSubject = Humanoid
+
+    if oldFlingPos then
+        repeat
+            RootPart.CFrame = oldFlingPos * CFrame.new(0, 0.5, 0)
+            pcall(function()
+                Character:SetPrimaryPartCFrame(oldFlingPos * CFrame.new(0, 0.5, 0))
+            end)
+            Humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+            for _, part in ipairs(Character:GetChildren()) do
+                if part:IsA("BasePart") then
+                    part.Velocity = Vector3.zero
+                    part.RotVelocity = Vector3.zero
+                end
+            end
+            task.wait()
+        until (RootPart.Position - oldFlingPos.Position).Magnitude < 25 or not flingActive
+        pcall(function()
+            workspace.FallenPartsDestroyHeight = savedFPDH
+        end)
+    end
+
+    flingActive = false
+    return true
+end
+
+local function startEndRound()
+    if isFlinging then return end
+    isFlinging = true
+    flingActive = true
+
+    task.spawn(function()
+        pauseFarmForEndRound()
+
+        local char, hrp = resetAndWaitForCharacter()
+        if char and hrp then
+            character = char
+            rootPart = hrp
+        end
+        task.wait(1.2)
+
+        local murderer = waitForMurderer(12)
+        for attempt = 1, 3 do
+            if not flingActive or not isFlinging then break end
+            if not murderer or not murderer.Parent then
+                murderer = waitForMurderer(4)
+            end
+            if murderer and murderer.Character and player.Character then
+                character = player.Character
+                rootPart = character:FindFirstChild("HumanoidRootPart")
+                if rootPart then
+                    local ok, didFling = pcall(skidFling, murderer)
+                    if ok and didFling then
+                        break
+                    end
+                end
+            end
+            task.wait(0.75)
+        end
+
+        flingActive = false
+        isFlinging = false
+        resumeFarmAfterEndRound()
+    end)
+end
+
+local function addCorner(parent, radius)
+    local c = Instance.new("UICorner")
+    c.CornerRadius = UDim.new(0, radius or 8)
+    c.Parent = parent
+    return c
+end
+
+local function addStroke(parent, color, thickness)
+    local s = Instance.new("UIStroke")
+    s.Color = color or COLORS.border
+    s.Thickness = thickness or 1
+    s.Parent = parent
+    return s
+end
+
+local function styleButton(btn, bg, textColor)
+    btn.BackgroundColor3 = bg or COLORS.field
+    btn.TextColor3 = textColor or COLORS.text
+    btn.Font = Enum.Font.GothamMedium
+    btn.BorderSizePixel = 0
+    btn.AutoButtonColor = false
+    addCorner(btn, 8)
+    addStroke(btn, COLORS.border)
+end
+
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ItemSpawnerGUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.IgnoreGuiInset = true
+screenGui.DisplayOrder = 1000
+
+-- Compact GUI layout
+local GUI_WIDTH = 400
+local GUI_HEIGHT = 256
+local GUI_HEADER_H = 36
+local GUI_MIN_H = 36
+local GUI_SIDEBAR_W = 86
+local GUI_CONTENT_X = 96
+local GUI_BODY_PAD = 8
+local GUI_BODY_TOP = 40
+local GUI_BODY_TRIM = 46
+local GUI_NAV_H = 29
+local GUI_NAV_GAP = 35
+local GUI_ROW_H = 29
+local GUI_BTN_H = 32
+local GUI_LABEL_H = 14
+local GUI_CTRL = 29
+
+-- Intro Animation
+local introGui = Instance.new("ScreenGui")
+introGui.Parent = player:WaitForChild("PlayerGui")
+introGui.IgnoreGuiInset = true
+introGui.DisplayOrder = 999
+
+local introContainer = Instance.new("Frame")
+introContainer.Size = UDim2.new(0, 256, 0, 64)
+introContainer.Position = UDim2.new(0.5, -128, 0.5, -32)
+introContainer.BackgroundTransparency = 1
+introContainer.Parent = introGui
+
+local introIcon = Instance.new("Frame")
+introIcon.Size = UDim2.new(0, 51, 0, 51)
+introIcon.Position = UDim2.new(0.5, -26, 0, 0)
+introIcon.BackgroundColor3 = COLORS.field
+introIcon.BackgroundTransparency = 1
+introIcon.Parent = introContainer
+addCorner(introIcon, 999)
+addStroke(introIcon, COLORS.accent, 2)
+
+local introText = Instance.new("TextLabel")
+introText.Size = UDim2.new(1, 0, 0, 22)
+introText.Position = UDim2.new(0, 0, 1, -22)
+introText.BackgroundTransparency = 1
+introText.Text = "Ignite Hub"
+introText.TextTransparency = 1
+introText.TextColor3 = COLORS.text
+introText.Font = Enum.Font.GothamBold
+introText.TextSize = 16
+introText.Parent = introContainer
+
+task.spawn(function()
+    for i = 1, 0, -0.08 do
+        introIcon.BackgroundTransparency = i
+        introText.TextTransparency = i
+        task.wait(0.02)
+    end
+    task.wait(0.9)
+    for i = 0, 1, 0.08 do
+        introIcon.BackgroundTransparency = i
+        introText.TextTransparency = i
+        task.wait(0.02)
+    end
+    introGui:Destroy()
+end)
+
+-- Main window
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "Main"
+mainFrame.Size = UDim2.new(0, GUI_WIDTH, 0, GUI_HEIGHT)
+mainFrame.Position = UDim2.new(0.5, 0, 0.12, 0)
+mainFrame.AnchorPoint = Vector2.new(0.5, 0)
+mainFrame.BackgroundColor3 = COLORS.bg
+mainFrame.BackgroundTransparency = 1
+mainFrame.ClipsDescendants = false
+mainFrame.Parent = screenGui
+addCorner(mainFrame, 10)
+addStroke(mainFrame, COLORS.border, 1.2)
+
+-- Header (draggable)
+local header = Instance.new("Frame")
+header.Name = "Header"
+header.Size = UDim2.new(1, 0, 0, GUI_HEADER_H)
+header.BackgroundTransparency = 1
+header.ZIndex = 5
+header.Parent = mainFrame
+
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(0.55, 0, 1, 0)
+titleLabel.Position = UDim2.new(0, 10, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "Ignite Hub • Murder Mystery 2"
+titleLabel.TextColor3 = COLORS.text
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextSize = 12
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.TextTransparency = 1
+titleLabel.ZIndex = 6
+titleLabel.Parent = header
+
+local minimizeButton = Instance.new("TextButton")
+minimizeButton.Size = UDim2.new(0, 52, 0, 22)
+minimizeButton.Position = UDim2.new(1, -120, 0.5, -11)
+minimizeButton.BackgroundColor3 = COLORS.field
+minimizeButton.Text = "Min"
+minimizeButton.TextColor3 = COLORS.text
+minimizeButton.Font = Enum.Font.GothamMedium
+minimizeButton.TextSize = 11
+minimizeButton.TextTransparency = 1
+minimizeButton.ZIndex = 6
+minimizeButton.Parent = header
+addCorner(minimizeButton, 8)
+addStroke(minimizeButton, COLORS.border, 1.2)
+
+local closeButton = Instance.new("TextButton")
+closeButton.Size = UDim2.new(0, 52, 0, 22)
+closeButton.Position = UDim2.new(1, -62, 0.5, -11)
+closeButton.BackgroundColor3 = COLORS.closeBg
+closeButton.Text = "Close"
+closeButton.TextColor3 = COLORS.text
+closeButton.Font = Enum.Font.GothamMedium
+closeButton.TextSize = 11
+closeButton.TextTransparency = 1
+closeButton.ZIndex = 6
+closeButton.Parent = header
+addCorner(closeButton, 8)
+addStroke(closeButton, COLORS.closeBorder, 1.5)
+
+local FRAME_WIDTH = GUI_WIDTH
+local FRAME_FULL_HEIGHT = GUI_HEIGHT
+local FRAME_MIN_HEIGHT = GUI_MIN_H
+local isMinimized = false
+
+-- Body layout
+local body = Instance.new("Frame")
+body.Size = UDim2.new(1, -GUI_BODY_PAD * 2, 1, -GUI_BODY_TRIM)
+body.Position = UDim2.new(0, GUI_BODY_PAD, 0, GUI_BODY_TOP)
+body.BackgroundTransparency = 1
+body.ZIndex = 2
+body.Parent = mainFrame
+
+-- Sidebar
+local sidebar = Instance.new("Frame")
+sidebar.Size = UDim2.new(0, GUI_SIDEBAR_W, 1, 0)
+sidebar.BackgroundColor3 = COLORS.panel
+sidebar.BackgroundTransparency = 1
+sidebar.BorderSizePixel = 0
+sidebar.ZIndex = 3
+sidebar.Parent = body
+addCorner(sidebar, 8)
+addStroke(sidebar, COLORS.border)
+
+local navButtons = {}
+local tabNames = {"Spawner", "Duper", "Farm"}
+local activeTab = "Spawner"
+
+local function setNavStyle(btn, active)
+    btn.BackgroundColor3 = active and COLORS.navActive or COLORS.field
+    btn.TextColor3 = active and COLORS.text or COLORS.textDim
+    local s = btn:FindFirstChildOfClass("UIStroke")
+    if s then
+        s.Color = active and COLORS.borderActive or COLORS.border
+    end
+end
+
+for i, name in ipairs(tabNames) do
+    local navBtn = Instance.new("TextButton")
+    navBtn.Name = name
+    navBtn.Size = UDim2.new(1, -12, 0, GUI_NAV_H)
+    navBtn.Position = UDim2.new(0, 6, 0, 8 + (i - 1) * GUI_NAV_GAP)
+    navBtn.Text = name
+    navBtn.TextSize = 12
+    navBtn.TextTransparency = 1
+    navBtn.ZIndex = 4
+    navBtn.Parent = sidebar
+    styleButton(navBtn, COLORS.field)
+    navButtons[name] = navBtn
+    setNavStyle(navBtn, name == activeTab)
+end
+
+-- Content area
+local content = Instance.new("Frame")
+content.Size = UDim2.new(1, -GUI_CONTENT_X, 1, 0)
+content.Position = UDim2.new(0, GUI_CONTENT_X, 0, 0)
+content.BackgroundTransparency = 1
+content.ZIndex = 3
+content.Parent = body
+
+local pages = {}
+
+local function makePage(name)
+    local page = Instance.new("Frame")
+    page.Name = name .. "Page"
+    page.Size = UDim2.new(1, 0, 1, 0)
+    page.BackgroundTransparency = 1
+    page.Visible = name == activeTab
+    page.ZIndex = 3
+    page.Parent = content
+    pages[name] = page
+    return page
+end
+
+local spawnerPage = makePage("Spawner")
+local duperPage = makePage("Duper")
+local farmPage = makePage("Farm")
+
+-- Shared weapon dropdown UI builder
+local function buildWeaponSection(parent, yOffset)
+    local weaponLabel = Instance.new("TextLabel")
+    weaponLabel.Size = UDim2.new(1, -8, 0, GUI_LABEL_H)
+    weaponLabel.Position = UDim2.new(0, 4, 0, yOffset or 6)
+    weaponLabel.BackgroundTransparency = 1
+    weaponLabel.Text = "Weapon"
+    weaponLabel.TextColor3 = COLORS.text
+    weaponLabel.Font = Enum.Font.GothamMedium
+    weaponLabel.TextSize = 12
+    weaponLabel.TextXAlignment = Enum.TextXAlignment.Left
+    weaponLabel.TextTransparency = 1
+    weaponLabel.ZIndex = 5
+    weaponLabel.Parent = parent
+
+    local weaponSelect = Instance.new("TextButton")
+    weaponSelect.Size = UDim2.new(1, -8, 0, GUI_ROW_H)
+    weaponSelect.Position = UDim2.new(0, 4, 0, (yOffset or 6) + 18)
+    weaponSelect.Text = selectedWeapon
+    weaponSelect.TextSize = 12
+    weaponSelect.TextTransparency = 1
+    weaponSelect.ZIndex = 5
+    weaponSelect.Parent = parent
+    styleButton(weaponSelect, COLORS.field)
+
+    return weaponLabel, weaponSelect
+end
+
+local function buildAmountSection(parent, yOffset)
+    local amountLabel = Instance.new("TextLabel")
+    amountLabel.Size = UDim2.new(1, -8, 0, GUI_LABEL_H)
+    amountLabel.Position = UDim2.new(0, 4, 0, yOffset or 62)
+    amountLabel.BackgroundTransparency = 1
+    amountLabel.Text = "Amount"
+    amountLabel.TextColor3 = COLORS.text
+    amountLabel.Font = Enum.Font.GothamMedium
+    amountLabel.TextSize = 12
+    amountLabel.TextXAlignment = Enum.TextXAlignment.Left
+    amountLabel.TextTransparency = 1
+    amountLabel.ZIndex = 5
+    amountLabel.Parent = parent
+
+    local amountRow = Instance.new("Frame")
+    amountRow.Size = UDim2.new(1, -8, 0, GUI_ROW_H)
+    amountRow.Position = UDim2.new(0, 4, 0, (yOffset or 62) + 18)
+    amountRow.BackgroundTransparency = 1
+    amountRow.ZIndex = 5
+    amountRow.Parent = parent
+
+    local minusBtn = Instance.new("TextButton")
+    minusBtn.Size = UDim2.new(0, GUI_CTRL, 1, 0)
+    minusBtn.Text = "-"
+    minusBtn.TextSize = 16
+    minusBtn.TextTransparency = 1
+    minusBtn.ZIndex = 6
+    minusBtn.Parent = amountRow
+    styleButton(minusBtn, COLORS.field)
+
+    local amountDisplay = Instance.new("TextLabel")
+    amountDisplay.Size = UDim2.new(1, -GUI_CTRL * 2 - 16, 1, 0)
+    amountDisplay.Position = UDim2.new(0, GUI_CTRL + 6, 0, 0)
+    amountDisplay.BackgroundColor3 = COLORS.field
+    amountDisplay.Text = tostring(spawnAmount)
+    amountDisplay.TextColor3 = COLORS.text
+    amountDisplay.Font = Enum.Font.GothamMedium
+    amountDisplay.TextSize = 13
+    amountDisplay.TextTransparency = 1
+    amountDisplay.ZIndex = 6
+    amountDisplay.Parent = amountRow
+    addCorner(amountDisplay, 8)
+    addStroke(amountDisplay, COLORS.border)
+
+    local plusBtn = Instance.new("TextButton")
+    plusBtn.Size = UDim2.new(0, GUI_CTRL, 1, 0)
+    plusBtn.Position = UDim2.new(1, -GUI_CTRL, 0, 0)
+    plusBtn.Text = "+"
+    plusBtn.TextSize = 16
+    plusBtn.TextTransparency = 1
+    plusBtn.ZIndex = 6
+    plusBtn.Parent = amountRow
+    styleButton(plusBtn, COLORS.field)
+
+    local function refreshAmount()
+        amountDisplay.Text = tostring(spawnAmount)
+    end
+
+    minusBtn.MouseButton1Click:Connect(function()
+        spawnAmount = math.max(1, spawnAmount - 1)
+        refreshAmount()
+    end)
+
+    plusBtn.MouseButton1Click:Connect(function()
+        spawnAmount = math.min(999, spawnAmount + 1)
+        refreshAmount()
+    end)
+
+    return amountLabel, amountDisplay
+end
+
+-- Spawner page
+local _, spawnerWeaponSelect = buildWeaponSection(spawnerPage, 6)
+buildAmountSection(spawnerPage, 62)
+
+local spawnButton = Instance.new("TextButton")
+spawnButton.Size = UDim2.new(1, -8, 0, GUI_BTN_H)
+spawnButton.Position = UDim2.new(0, 4, 1, -38)
+spawnButton.Text = "Spawn"
+spawnButton.TextSize = 13
+spawnButton.TextTransparency = 1
+spawnButton.ZIndex = 5
+spawnButton.Parent = spawnerPage
+styleButton(spawnButton, COLORS.field)
+
+-- Duper page
+local _, duperWeaponSelect = buildWeaponSection(duperPage, 6)
+buildAmountSection(duperPage, 62)
+
+local dupeButton = Instance.new("TextButton")
+dupeButton.Size = UDim2.new(1, -8, 0, GUI_BTN_H)
+dupeButton.Position = UDim2.new(0, 4, 1, -38)
+dupeButton.Text = "Dupe"
+dupeButton.TextSize = 13
+dupeButton.TextTransparency = 1
+dupeButton.ZIndex = 5
+dupeButton.Parent = duperPage
+styleButton(dupeButton, COLORS.field)
+
+-- Farm page (ESP + Auto Farm)
+local function createFarmSectionLabel(parent, text, y)
+    local lbl = Instance.new("TextLabel")
+    lbl.Size = UDim2.new(1, -8, 0, GUI_LABEL_H)
+    lbl.Position = UDim2.new(0, 4, 0, y)
+    lbl.BackgroundTransparency = 1
+    lbl.Text = text
+    lbl.TextColor3 = COLORS.text
+    lbl.Font = Enum.Font.GothamBold
+    lbl.TextSize = 11
+    lbl.TextXAlignment = Enum.TextXAlignment.Left
+    lbl.TextTransparency = 1
+    lbl.ZIndex = 5
+    lbl.Parent = parent
+    return lbl
+end
+
+local function createFarmToggle(parent, text, y, defaultOn, onChanged)
+    local toggle = Instance.new("TextButton")
+    toggle.Size = UDim2.new(1, -8, 0, 26)
+    toggle.Position = UDim2.new(0, 4, 0, y)
+    toggle.Font = Enum.Font.GothamMedium
+    toggle.TextSize = 11
+    toggle.TextTransparency = 1
+    toggle.ZIndex = 5
+    toggle.Parent = parent
+    local enabled = defaultOn
+    local function refresh()
+        toggle.Text = text .. (enabled and "  [ON]" or "  [OFF]")
+        toggle.TextColor3 = enabled and COLORS.accent or COLORS.textDim
+        toggle.BackgroundColor3 = enabled and COLORS.navActive or COLORS.field
+    end
+    styleButton(toggle, COLORS.field)
+    refresh()
+    toggle.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        refresh()
+        onChanged(enabled)
+    end)
+    return {
+        SetState = function(state)
+            enabled = state
+            refresh()
+        end,
+    }
+end
+
+local farmScroll = Instance.new("ScrollingFrame")
+farmScroll.Size = UDim2.new(1, 0, 1, 0)
+farmScroll.BackgroundTransparency = 1
+farmScroll.BorderSizePixel = 0
+farmScroll.ScrollBarThickness = 3
+farmScroll.ScrollBarImageColor3 = COLORS.borderActive
+farmScroll.ZIndex = 4
+farmScroll.Parent = farmPage
+
+createFarmSectionLabel(farmScroll, "ESP", 5)
+
+local espModeButton = Instance.new("TextButton")
+espModeButton.Size = UDim2.new(1, -8, 0, 26)
+espModeButton.Position = UDim2.new(0, 4, 0, 22)
+espModeButton.Text = "Target: " .. currentESPOptions[1]
+espModeButton.TextColor3 = COLORS.text
+espModeButton.Font = Enum.Font.GothamMedium
+espModeButton.TextSize = 11
+espModeButton.TextTransparency = 1
+espModeButton.ZIndex = 5
+espModeButton.Parent = farmScroll
+styleButton(espModeButton, COLORS.field)
+
+espModeButton.MouseButton1Click:Connect(function()
+    espModeIndex = (espModeIndex % #espModeList) + 1
+    currentESPOptions = { espModeList[espModeIndex] }
+    espModeButton.Text = "Target: " .. currentESPOptions[1]
+    updateESP()
+end)
+
+createFarmToggle(farmScroll, "Highlight ESP", 54, true, function(state)
+    highlightEnabled = state
+    updateESP()
+end)
+
+createFarmToggle(farmScroll, "Line ESP", 86, false, function(state)
+    lineESPEnabled = state
+    if not state then
+        for _, line in pairs(tracers) do line:Remove() end
+        tracers = {}
+    end
+    updateESP()
+end)
+
+createFarmSectionLabel(farmScroll, "Auto Farm", 122)
+
+coinFarmToggleRef = createFarmToggle(farmScroll, "Coin Autofarm", 140, false, function(state)
+    autoFarmCoins = state
+    if state then
+        autoFarmCandy = false
+        visitedPositions = {}
+        collected = 0
+        if candyFarmToggleRef then candyFarmToggleRef.SetState(false) end
+    end
+end)
+candyFarmToggleRef = createFarmToggle(farmScroll, "Candy Autofarm", 173, false, function(state)
+    autoFarmCandy = state
+    if state then
+        autoFarmCoins = false
+        visitedPositions = {}
+        collected = 0
+        if coinFarmToggleRef then coinFarmToggleRef.SetState(false) end
+    end
+end)
+createFarmSectionLabel(farmScroll, "Farm Speed", 208)
+
+local farmSpeedRow = Instance.new("Frame")
+farmSpeedRow.Size = UDim2.new(1, -8, 0, GUI_ROW_H)
+farmSpeedRow.Position = UDim2.new(0, 4, 0, 226)
+farmSpeedRow.BackgroundTransparency = 1
+farmSpeedRow.ZIndex = 5
+farmSpeedRow.Parent = farmScroll
+
+local farmSpeedMinus = Instance.new("TextButton")
+farmSpeedMinus.Size = UDim2.new(0, GUI_CTRL, 1, 0)
+farmSpeedMinus.Text = "-"
+farmSpeedMinus.TextSize = 16
+farmSpeedMinus.TextTransparency = 1
+farmSpeedMinus.ZIndex = 6
+farmSpeedMinus.Parent = farmSpeedRow
+styleButton(farmSpeedMinus, COLORS.field)
+
+local farmSpeedBox = Instance.new("TextBox")
+farmSpeedBox.Size = UDim2.new(1, -GUI_CTRL * 2 - 16, 1, 0)
+farmSpeedBox.Position = UDim2.new(0, GUI_CTRL + 6, 0, 0)
+farmSpeedBox.BackgroundColor3 = COLORS.field
+farmSpeedBox.Text = tostring(flySpeed)
+farmSpeedBox.TextColor3 = COLORS.text
+farmSpeedBox.Font = Enum.Font.GothamMedium
+farmSpeedBox.TextSize = 13
+farmSpeedBox.TextTransparency = 1
+farmSpeedBox.ClearTextOnFocus = false
+farmSpeedBox.ZIndex = 6
+farmSpeedBox.Parent = farmSpeedRow
+addCorner(farmSpeedBox, 8)
+addStroke(farmSpeedBox, COLORS.border)
+
+local farmSpeedPlus = Instance.new("TextButton")
+farmSpeedPlus.Size = UDim2.new(0, GUI_CTRL, 1, 0)
+farmSpeedPlus.Position = UDim2.new(1, -GUI_CTRL, 0, 0)
+farmSpeedPlus.Text = "+"
+farmSpeedPlus.TextSize = 16
+farmSpeedPlus.TextTransparency = 1
+farmSpeedPlus.ZIndex = 6
+farmSpeedPlus.Parent = farmSpeedRow
+styleButton(farmSpeedPlus, COLORS.field)
+
+local function refreshFarmSpeed()
+    farmSpeedBox.Text = tostring(flySpeed)
+end
+
+farmSpeedMinus.MouseButton1Click:Connect(function()
+    flySpeed = math.max(1, flySpeed - 5)
+    refreshFarmSpeed()
+end)
+
+farmSpeedPlus.MouseButton1Click:Connect(function()
+    flySpeed = math.min(500, flySpeed + 5)
+    refreshFarmSpeed()
+end)
+
+farmSpeedBox.FocusLost:Connect(function()
+    local newSpeed = tonumber(farmSpeedBox.Text)
+    if newSpeed then
+        flySpeed = math.clamp(math.floor(newSpeed), 1, 500)
+    end
+    refreshFarmSpeed()
+end)
+
+createFarmSectionLabel(farmScroll, "End Round", 262)
+
+local endRoundButton = Instance.new("TextButton")
+endRoundButton.Size = UDim2.new(1, -8, 0, GUI_BTN_H)
+endRoundButton.Position = UDim2.new(0, 4, 0, 282)
+endRoundButton.Text = "End Round"
+endRoundButton.TextSize = 13
+endRoundButton.TextColor3 = COLORS.text
+endRoundButton.Font = Enum.Font.GothamMedium
+endRoundButton.TextTransparency = 1
+endRoundButton.ZIndex = 5
+endRoundButton.Parent = farmScroll
+styleButton(endRoundButton, COLORS.field)
+
+endRoundButton.MouseButton1Click:Connect(function()
+    startEndRound()
+end)
+
+-- End Round button ends at y=314; keep extra padding so it isn't clipped when scrolling
+farmScroll.CanvasSize = UDim2.new(0, 0, 0, 326)
+
+-- Progress (under Amount)
+local loadingSection = Instance.new("Frame")
+loadingSection.Name = "ProgressSection"
+loadingSection.Size = UDim2.new(1, -8, 0, 28)
+loadingSection.Position = UDim2.new(0, 4, 0, 110)
+loadingSection.BackgroundTransparency = 1
+loadingSection.ZIndex = 6
+loadingSection.Parent = content
+
+local progressLabel = Instance.new("TextLabel")
+progressLabel.Size = UDim2.new(1, 0, 0, 12)
+progressLabel.BackgroundTransparency = 1
+progressLabel.Text = "Ready"
+progressLabel.TextColor3 = COLORS.textDim
+progressLabel.Font = Enum.Font.Gotham
+progressLabel.TextSize = 10
+progressLabel.TextXAlignment = Enum.TextXAlignment.Center
+progressLabel.ZIndex = 7
+progressLabel.Parent = loadingSection
+
+local barBG = Instance.new("Frame")
+barBG.Size = UDim2.new(1, 0, 0, 5)
+barBG.Position = UDim2.new(0, 0, 0, 14)
+barBG.BackgroundColor3 = COLORS.field
+barBG.ZIndex = 7
+barBG.Parent = loadingSection
+addCorner(barBG, 999)
+
+local barFill = Instance.new("Frame")
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = COLORS.accent
+barFill.BorderSizePixel = 0
+barFill.ZIndex = 8
+barFill.Parent = barBG
+addCorner(barFill, 999)
+
+-- Weapon dropdown (shared)
+local dropdown = Instance.new("ScrollingFrame")
+dropdown.Name = "WeaponDropdown"
+dropdown.Size = UDim2.new(0, 272, 0, 112)
+dropdown.Position = UDim2.new(0, GUI_CONTENT_X + 8, 0, 94)
+dropdown.BackgroundColor3 = COLORS.panel
+dropdown.BackgroundTransparency = 1
+dropdown.BorderSizePixel = 0
+dropdown.Visible = false
+dropdown.ZIndex = 20
+dropdown.CanvasSize = UDim2.new(0, 0, 0, #items * 22)
+dropdown.ScrollBarThickness = 4
+dropdown.ScrollBarImageColor3 = COLORS.borderActive
+dropdown.Parent = mainFrame
+addCorner(dropdown, 8)
+addStroke(dropdown, COLORS.border)
+
+local dropdownList = Instance.new("UIListLayout")
+dropdownList.Padding = UDim.new(0, 4)
+dropdownList.Parent = dropdown
+
+local dropdownPad = Instance.new("UIPadding")
+dropdownPad.PaddingTop = UDim.new(0, 6)
+dropdownPad.PaddingLeft = UDim.new(0, 6)
+dropdownPad.PaddingRight = UDim.new(0, 6)
+dropdownPad.PaddingBottom = UDim.new(0, 6)
+dropdownPad.Parent = dropdown
+
+local weaponSelectButtons = {spawnerWeaponSelect, duperWeaponSelect}
+
+local function updateWeaponDisplays()
+    for _, btn in ipairs(weaponSelectButtons) do
+        btn.Text = selectedWeapon
+    end
+end
+
+local function closeDropdown()
+    dropdownOpen = false
+    dropdown.Visible = false
+    TweenService:Create(dropdown, TweenInfo.new(0.2), {BackgroundTransparency = 1}):Play()
+end
+
+local function openDropdown()
+    dropdownOpen = true
+    dropdown.Visible = true
+    dropdown.BackgroundTransparency = 1
+    TweenService:Create(dropdown, TweenInfo.new(0.2), {BackgroundTransparency = 0}):Play()
+end
+
+for _, item in ipairs(items) do
+    local opt = Instance.new("TextButton")
+    opt.Size = UDim2.new(1, -12, 0, 20)
+    opt.BackgroundColor3 = COLORS.field
+    opt.Text = item.custom
+    opt.TextColor3 = COLORS.textDim
+    opt.Font = Enum.Font.Gotham
+    opt.TextSize = 11
+    opt.TextTransparency = 1
+    opt.ZIndex = 21
+    opt.Parent = dropdown
+    addCorner(opt, 6)
+
+    opt.MouseButton1Click:Connect(function()
+        selectedWeapon = item.custom
+        updateWeaponDisplays()
+        closeDropdown()
+    end)
+end
+
+for _, btn in ipairs(weaponSelectButtons) do
+    btn.MouseButton1Click:Connect(function()
+        if dropdownOpen then
+            closeDropdown()
+        else
+            openDropdown()
+        end
+    end)
+end
+
+-- Tab switching
+local function switchTab(tabName)
+    activeTab = tabName
+    closeDropdown()
+    for name, page in pairs(pages) do
+        page.Visible = name == tabName
+    end
+    for name, btn in pairs(navButtons) do
+        setNavStyle(btn, name == tabName)
+    end
+    loadingSection.Visible = tabName ~= "Farm"
+end
+
+for name, btn in pairs(navButtons) do
+    btn.MouseButton1Click:Connect(function()
+        switchTab(name)
+    end)
+end
+
+-- Spawn / dupe logic
+local function applyItem(name, amount)
+    local _, PlayerData = require(game:GetService("ReplicatedStorage").Database.Sync.Item), require(game:GetService("ReplicatedStorage").Modules.ProfileData)
+    local PlayerWeapons = PlayerData.Weapons
+
+    if not PlayerWeapons.Owned[name] then
+        PlayerWeapons.Owned[name] = amount
+    else
+        PlayerWeapons.Owned[name] += amount
+    end
+
+    game:GetService("RunService"):BindToRenderStep("InventoryUpdate", 0, function()
+        PlayerData.Weapons = PlayerWeapons
+    end)
+
+    if player.Character then
+        player.Character:BreakJoints()
+    end
+end
+
+local function showProgress(customName, amount, actionLabel)
+    local originalName = getOriginalName(customName)
+    amount = amount or 1
+    actionLabel = actionLabel or "Spawning"
+
+    progressLabel.TextColor3 = COLORS.text
+    progressLabel.Text = actionLabel .. "..."
+
+    local percent = 0
+    barFill.Size = UDim2.new(0, 0, 1, 0)
+    while percent < 100 do
+        percent += math.random(8, 18)
+        percent = math.clamp(percent, 0, 100)
+        progressLabel.Text = actionLabel .. ": " .. customName .. " x" .. amount .. " (" .. percent .. "%)"
+        barFill:TweenSize(UDim2.new(percent / 100, 0, 1, 0), "Out", "Quad", 0.1, true)
+        task.wait(0.35)
+    end
+
+    progressLabel.Text = "Done: " .. customName .. " x" .. amount
+    applyItem(originalName, amount)
+
+    task.delay(0.8, function()
+        progressLabel.TextColor3 = COLORS.textDim
+        progressLabel.Text = "Ready"
+        barFill:TweenSize(UDim2.new(0, 0, 1, 0), "Out", "Quad", 0.2, true)
+    end)
+end
+
+local function pulseButton(btn)
+    local original = btn.Size
+    local grow = TweenService:Create(btn, TweenInfo.new(0.12, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {
+        Size = UDim2.new(original.X.Scale, original.X.Offset + 4, original.Y.Scale, original.Y.Offset + 2)
+    })
+    grow:Play()
+    grow.Completed:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.1), {Size = original}):Play()
+    end)
+end
+
+spawnButton.MouseButton1Click:Connect(function()
+    pulseButton(spawnButton)
+    task.spawn(function()
+        showProgress(selectedWeapon, spawnAmount, "Spawning")
+    end)
+end)
+
+dupeButton.MouseButton1Click:Connect(function()
+    pulseButton(dupeButton)
+    task.spawn(function()
+        showProgress(selectedWeapon, spawnAmount, "Duping")
+    end)
+end)
+
+minimizeButton.MouseButton1Click:Connect(function()
+    isMinimized = not isMinimized
+    body.Visible = not isMinimized
+    minimizeButton.Text = isMinimized and "Max" or "Min"
+    dropdownOpen = false
+    dropdown.Visible = false
+    local targetHeight = isMinimized and FRAME_MIN_HEIGHT or FRAME_FULL_HEIGHT
+    TweenService:Create(mainFrame, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+        Size = UDim2.new(0, FRAME_WIDTH, 0, targetHeight)
+    }):Play()
+end)
+
+closeButton.MouseButton1Click:Connect(function()
+    flingActive = false
+    autoFarmCoins = false
+    autoFarmCandy = false
+    farmPausedForEndRound = false
+    for _, line in pairs(tracers) do
+        if line then line:Remove() end
+    end
+    tracers = {}
+    screenGui:Destroy()
+end)
+
+-- Drag (title bar only)
+local dragToggle, dragStart, startPos
+titleLabel.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragToggle = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragToggle = false
+            end
+        end)
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if dragToggle and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+        local delta = input.Position - dragStart
+        mainFrame.Position = UDim2.new(
+            startPos.X.Scale, startPos.X.Offset + delta.X,
+            startPos.Y.Scale, startPos.Y.Offset + delta.Y
+        )
+    end
+end)
+
+-- Open animation (top-anchored — minimize won't jump to screen center)
+TweenService:Create(mainFrame, TweenInfo.new(0.35), {BackgroundTransparency = 0}):Play()
+TweenService:Create(sidebar, TweenInfo.new(0.35), {BackgroundTransparency = 0}):Play()
+
+for _, v in ipairs(mainFrame:GetDescendants()) do
+    if v:IsA("TextLabel") or v:IsA("TextButton") then
+        TweenService:Create(v, TweenInfo.new(0.35), {TextTransparency = 0}):Play()
+    end
+end
+
+for _, v in ipairs(dropdown:GetDescendants()) do
+    if v:IsA("TextButton") then
+        TweenService:Create(v, TweenInfo.new(0.35), {TextTransparency = 0}):Play()
+    end
+end
