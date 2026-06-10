@@ -25,7 +25,7 @@ local Window = Rayfield:CreateWindow({
    Name = "Trade Scam - v1.0.4 [PRIVATE]",
    Icon = 0,
    LoadingTitle = "MM2 Trade Scam",
-   LoadingSubtitle = "by K4F7",
+   LoadingSubtitle = "by Ignite Scripts",
    ShowText = "Continue",
    Theme = "AmberGlow", 
    ToggleUIKeybind = "K",
@@ -34,7 +34,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil,
-      FileName = "K4F7 Hub"
+      FileName = "Ignite Scripts Hub"
    },
 })
 local Tab = Window:CreateTab("Trading", "rewind")
