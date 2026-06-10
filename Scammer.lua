@@ -1,0 +1,56 @@
+--// Scammer POV:
+_G.Forced = false
+_G.Platform = "None"
+if game:GetService("UserInputService").TouchEnabled then
+    _G.Platform = "Mobile"
+elseif game:GetService("UserInputService").KeyboardEnabled then
+    _G.Platform = "PC"
+else
+    game:GetService("Players").LocalPlayer:Kick("Device is unsupported.")
+    return
+end
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+end)
+local function ForceAccept()
+    if _G.Platform == "Mobile" then
+        game:GetService("Players").LocalPlayer.PlayerGui.TradeGUI_Phone.Container.Trade.TheirOffer.Accepted.Visible = true
+    elseif _G.Platform == "PC" then
+        game:GetService("Players").LocalPlayer.PlayerGui.TradeGUI.Container.Trade.TheirOffer.Accepted.Visible = true
+    end
+end
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Trade Scam - v1.0.4 [PRIVATE]",
+   Icon = 0,
+   LoadingTitle = "MM2 Trade Scam",
+   LoadingSubtitle = "by K4F7",
+   ShowText = "Continue",
+   Theme = "AmberGlow", 
+   ToggleUIKeybind = "K",
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, 
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil,
+      FileName = "K4F7 Hub"
+   },
+})
+local Tab = Window:CreateTab("Trading", "rewind")
+local Toggle = Tab:CreateToggle({
+   Name = "Enable Force Accept",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+   _G.Forced = Value
+        if Value then
+            coroutine.wrap(function()
+                while _G.Forced do
+                    ForceAccept()
+                    task.wait(0.1)
+                end
+            end)()
+        end
+   end,
+})
